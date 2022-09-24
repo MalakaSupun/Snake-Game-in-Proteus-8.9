@@ -1,0 +1,2076 @@
+
+Displaying_Things .elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000006  00800100  0000108e  00001122  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         0000108e  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000026  00800106  00800106  00001128  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00001128  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00001158  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000158  00000000  00000000  00001198  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00002afa  00000000  00000000  000012f0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000992  00000000  00000000  00003dea  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   0000121f  00000000  00000000  0000477c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000344  00000000  00000000  0000599c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000006dd  00000000  00000000  00005ce0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00001111  00000000  00000000  000063bd  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000138  00000000  00000000  000074ce  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+       0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+       4:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+       8:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+       c:	0c 94 6d 07 	jmp	0xeda	; 0xeda <__vector_3>
+      10:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+      14:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+      18:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+      1c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+      20:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+      24:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+      28:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+      2c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+      30:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+      34:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+      38:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+      3c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+      40:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+      44:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+      48:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+      4c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+      50:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+      54:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+      58:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+      5c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+      60:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+      64:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+
+00000068 <__ctors_end>:
+      68:	11 24       	eor	r1, r1
+      6a:	1f be       	out	0x3f, r1	; 63
+      6c:	cf ef       	ldi	r28, 0xFF	; 255
+      6e:	d8 e0       	ldi	r29, 0x08	; 8
+      70:	de bf       	out	0x3e, r29	; 62
+      72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_copy_data>:
+      74:	11 e0       	ldi	r17, 0x01	; 1
+      76:	a0 e0       	ldi	r26, 0x00	; 0
+      78:	b1 e0       	ldi	r27, 0x01	; 1
+      7a:	ee e8       	ldi	r30, 0x8E	; 142
+      7c:	f0 e1       	ldi	r31, 0x10	; 16
+      7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
+      80:	05 90       	lpm	r0, Z+
+      82:	0d 92       	st	X+, r0
+      84:	a6 30       	cpi	r26, 0x06	; 6
+      86:	b1 07       	cpc	r27, r17
+      88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
+
+0000008a <__do_clear_bss>:
+      8a:	21 e0       	ldi	r18, 0x01	; 1
+      8c:	a6 e0       	ldi	r26, 0x06	; 6
+      8e:	b1 e0       	ldi	r27, 0x01	; 1
+      90:	01 c0       	rjmp	.+2      	; 0x94 <.do_clear_bss_start>
+
+00000092 <.do_clear_bss_loop>:
+      92:	1d 92       	st	X+, r1
+
+00000094 <.do_clear_bss_start>:
+      94:	ac 32       	cpi	r26, 0x2C	; 44
+      96:	b2 07       	cpc	r27, r18
+      98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
+      9a:	0e 94 03 07 	call	0xe06	; 0xe06 <main>
+      9e:	0c 94 45 08 	jmp	0x108a	; 0x108a <_exit>
+
+000000a2 <__bad_interrupt>:
+      a2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000a6 <MAX7219_write_7SEG>:
+	MAX7219_set_pixel(Cx,Cy,true);     // setting LED
+}
+
+void snakeclear()                       // clear the display or clear LED dot
+{
+	MAX7219_set_pixel(Tx,Ty,false);
+      a6:	00 00       	nop
+      a8:	20 e0       	ldi	r18, 0x00	; 0
+      aa:	12 c0       	rjmp	.+36     	; 0xd0 <MAX7219_write_7SEG+0x2a>
+      ac:	95 b1       	in	r25, 0x05	; 5
+      ae:	9f 7d       	andi	r25, 0xDF	; 223
+      b0:	95 b9       	out	0x05, r25	; 5
+      b2:	00 00       	nop
+      b4:	88 23       	and	r24, r24
+      b6:	24 f4       	brge	.+8      	; 0xc0 <MAX7219_write_7SEG+0x1a>
+      b8:	95 b1       	in	r25, 0x05	; 5
+      ba:	98 60       	ori	r25, 0x08	; 8
+      bc:	95 b9       	out	0x05, r25	; 5
+      be:	03 c0       	rjmp	.+6      	; 0xc6 <MAX7219_write_7SEG+0x20>
+      c0:	95 b1       	in	r25, 0x05	; 5
+      c2:	97 7f       	andi	r25, 0xF7	; 247
+      c4:	95 b9       	out	0x05, r25	; 5
+      c6:	95 b1       	in	r25, 0x05	; 5
+      c8:	90 62       	ori	r25, 0x20	; 32
+      ca:	95 b9       	out	0x05, r25	; 5
+      cc:	2f 5f       	subi	r18, 0xFF	; 255
+      ce:	88 0f       	add	r24, r24
+      d0:	28 30       	cpi	r18, 0x08	; 8
+      d2:	60 f3       	brcs	.-40     	; 0xac <MAX7219_write_7SEG+0x6>
+      d4:	08 95       	ret
+
+000000d6 <MAX7219_send_7SEG>:
+      d6:	cf 93       	push	r28
+      d8:	c6 2f       	mov	r28, r22
+      da:	95 b1       	in	r25, 0x05	; 5
+      dc:	90 61       	ori	r25, 0x10	; 16
+      de:	95 b9       	out	0x05, r25	; 5
+      e0:	0e 94 53 00 	call	0xa6	; 0xa6 <MAX7219_write_7SEG>
+      e4:	8c 2f       	mov	r24, r28
+      e6:	0e 94 53 00 	call	0xa6	; 0xa6 <MAX7219_write_7SEG>
+      ea:	85 b1       	in	r24, 0x05	; 5
+      ec:	8f 7e       	andi	r24, 0xEF	; 239
+      ee:	85 b9       	out	0x05, r24	; 5
+      f0:	00 00       	nop
+      f2:	85 b1       	in	r24, 0x05	; 5
+      f4:	80 61       	ori	r24, 0x10	; 16
+      f6:	85 b9       	out	0x05, r24	; 5
+      f8:	cf 91       	pop	r28
+      fa:	08 95       	ret
+
+000000fc <MAX7219_init_7SEG>:
+      fc:	84 b1       	in	r24, 0x04	; 4
+      fe:	88 63       	ori	r24, 0x38	; 56
+     100:	84 b9       	out	0x04, r24	; 4
+     102:	60 e0       	ldi	r22, 0x00	; 0
+     104:	89 e0       	ldi	r24, 0x09	; 9
+     106:	0e 94 6b 00 	call	0xd6	; 0xd6 <MAX7219_send_7SEG>
+     10a:	67 e0       	ldi	r22, 0x07	; 7
+     10c:	8b e0       	ldi	r24, 0x0B	; 11
+     10e:	0e 94 6b 00 	call	0xd6	; 0xd6 <MAX7219_send_7SEG>
+     112:	6f e0       	ldi	r22, 0x0F	; 15
+     114:	8a e0       	ldi	r24, 0x0A	; 10
+     116:	0e 94 6b 00 	call	0xd6	; 0xd6 <MAX7219_send_7SEG>
+     11a:	60 e0       	ldi	r22, 0x00	; 0
+     11c:	8f e0       	ldi	r24, 0x0F	; 15
+     11e:	0e 94 6b 00 	call	0xd6	; 0xd6 <MAX7219_send_7SEG>
+     122:	61 e0       	ldi	r22, 0x01	; 1
+     124:	8c e0       	ldi	r24, 0x0C	; 12
+     126:	0e 94 6b 00 	call	0xd6	; 0xd6 <MAX7219_send_7SEG>
+     12a:	08 95       	ret
+
+0000012c <MAX7219_set_row_7SEG>:
+     12c:	88 30       	cpi	r24, 0x08	; 8
+     12e:	40 f4       	brcc	.+16     	; 0x140 <MAX7219_set_row_7SEG+0x14>
+     130:	e8 2f       	mov	r30, r24
+     132:	f0 e0       	ldi	r31, 0x00	; 0
+     134:	e0 5f       	subi	r30, 0xF0	; 240
+     136:	fe 4f       	sbci	r31, 0xFE	; 254
+     138:	60 83       	st	Z, r22
+     13a:	8f 5f       	subi	r24, 0xFF	; 255
+     13c:	0e 94 6b 00 	call	0xd6	; 0xd6 <MAX7219_send_7SEG>
+     140:	08 95       	ret
+
+00000142 <MAX7219_set_intensity_7SEG>:
+     142:	80 31       	cpi	r24, 0x10	; 16
+     144:	20 f4       	brcc	.+8      	; 0x14e <MAX7219_set_intensity_7SEG+0xc>
+     146:	68 2f       	mov	r22, r24
+     148:	8a e0       	ldi	r24, 0x0A	; 10
+     14a:	0e 94 6b 00 	call	0xd6	; 0xd6 <MAX7219_send_7SEG>
+     14e:	08 95       	ret
+
+00000150 <MAX7219_clear_7SEG>:
+     150:	cf 93       	push	r28
+     152:	c0 e0       	ldi	r28, 0x00	; 0
+     154:	12 c0       	rjmp	.+36     	; 0x17a <MAX7219_clear_7SEG+0x2a>
+     156:	8c 2f       	mov	r24, r28
+     158:	90 e0       	ldi	r25, 0x00	; 0
+     15a:	fc 01       	movw	r30, r24
+     15c:	e0 5f       	subi	r30, 0xF0	; 240
+     15e:	fe 4f       	sbci	r31, 0xFE	; 254
+     160:	20 81       	ld	r18, Z
+     162:	22 23       	and	r18, r18
+     164:	49 f0       	breq	.+18     	; 0x178 <MAX7219_clear_7SEG+0x28>
+     166:	fc 01       	movw	r30, r24
+     168:	e0 5f       	subi	r30, 0xF0	; 240
+     16a:	fe 4f       	sbci	r31, 0xFE	; 254
+     16c:	10 82       	st	Z, r1
+     16e:	60 e0       	ldi	r22, 0x00	; 0
+     170:	81 e0       	ldi	r24, 0x01	; 1
+     172:	8c 0f       	add	r24, r28
+     174:	0e 94 6b 00 	call	0xd6	; 0xd6 <MAX7219_send_7SEG>
+     178:	cf 5f       	subi	r28, 0xFF	; 255
+     17a:	c8 30       	cpi	r28, 0x08	; 8
+     17c:	60 f3       	brcs	.-40     	; 0x156 <MAX7219_clear_7SEG+0x6>
+     17e:	cf 91       	pop	r28
+     180:	08 95       	ret
+
+00000182 <gameOver>:
+     182:	6c e7       	ldi	r22, 0x7C	; 124
+     184:	81 e0       	ldi	r24, 0x01	; 1
+     186:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     18a:	60 e4       	ldi	r22, 0x40	; 64
+     18c:	82 e0       	ldi	r24, 0x02	; 2
+     18e:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     192:	60 e4       	ldi	r22, 0x40	; 64
+     194:	83 e0       	ldi	r24, 0x03	; 3
+     196:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     19a:	6c e5       	ldi	r22, 0x5C	; 92
+     19c:	84 e0       	ldi	r24, 0x04	; 4
+     19e:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     1a2:	64 e4       	ldi	r22, 0x44	; 68
+     1a4:	85 e0       	ldi	r24, 0x05	; 5
+     1a6:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     1aa:	64 e4       	ldi	r22, 0x44	; 68
+     1ac:	86 e0       	ldi	r24, 0x06	; 6
+     1ae:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     1b2:	6c e7       	ldi	r22, 0x7C	; 124
+     1b4:	87 e0       	ldi	r24, 0x07	; 7
+     1b6:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     1ba:	2f ef       	ldi	r18, 0xFF	; 255
+     1bc:	84 e3       	ldi	r24, 0x34	; 52
+     1be:	9c e0       	ldi	r25, 0x0C	; 12
+     1c0:	21 50       	subi	r18, 0x01	; 1
+     1c2:	80 40       	sbci	r24, 0x00	; 0
+     1c4:	90 40       	sbci	r25, 0x00	; 0
+     1c6:	e1 f7       	brne	.-8      	; 0x1c0 <gameOver+0x3e>
+     1c8:	00 c0       	rjmp	.+0      	; 0x1ca <gameOver+0x48>
+     1ca:	00 00       	nop
+     1cc:	0e 94 2c 08 	call	0x1058	; 0x1058 <MAX7219_clear>
+     1d0:	6c e7       	ldi	r22, 0x7C	; 124
+     1d2:	81 e0       	ldi	r24, 0x01	; 1
+     1d4:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     1d8:	64 e4       	ldi	r22, 0x44	; 68
+     1da:	82 e0       	ldi	r24, 0x02	; 2
+     1dc:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     1e0:	64 e4       	ldi	r22, 0x44	; 68
+     1e2:	83 e0       	ldi	r24, 0x03	; 3
+     1e4:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     1e8:	6c e7       	ldi	r22, 0x7C	; 124
+     1ea:	84 e0       	ldi	r24, 0x04	; 4
+     1ec:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     1f0:	64 e4       	ldi	r22, 0x44	; 68
+     1f2:	85 e0       	ldi	r24, 0x05	; 5
+     1f4:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     1f8:	64 e4       	ldi	r22, 0x44	; 68
+     1fa:	86 e0       	ldi	r24, 0x06	; 6
+     1fc:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     200:	64 e4       	ldi	r22, 0x44	; 68
+     202:	87 e0       	ldi	r24, 0x07	; 7
+     204:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     208:	2f ef       	ldi	r18, 0xFF	; 255
+     20a:	84 e3       	ldi	r24, 0x34	; 52
+     20c:	9c e0       	ldi	r25, 0x0C	; 12
+     20e:	21 50       	subi	r18, 0x01	; 1
+     210:	80 40       	sbci	r24, 0x00	; 0
+     212:	90 40       	sbci	r25, 0x00	; 0
+     214:	e1 f7       	brne	.-8      	; 0x20e <gameOver+0x8c>
+     216:	00 c0       	rjmp	.+0      	; 0x218 <gameOver+0x96>
+     218:	00 00       	nop
+     21a:	0e 94 2c 08 	call	0x1058	; 0x1058 <MAX7219_clear>
+     21e:	64 e4       	ldi	r22, 0x44	; 68
+     220:	81 e0       	ldi	r24, 0x01	; 1
+     222:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     226:	6c e6       	ldi	r22, 0x6C	; 108
+     228:	82 e0       	ldi	r24, 0x02	; 2
+     22a:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     22e:	6c e7       	ldi	r22, 0x7C	; 124
+     230:	83 e0       	ldi	r24, 0x03	; 3
+     232:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     236:	64 e5       	ldi	r22, 0x54	; 84
+     238:	84 e0       	ldi	r24, 0x04	; 4
+     23a:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     23e:	64 e4       	ldi	r22, 0x44	; 68
+     240:	85 e0       	ldi	r24, 0x05	; 5
+     242:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     246:	64 e4       	ldi	r22, 0x44	; 68
+     248:	86 e0       	ldi	r24, 0x06	; 6
+     24a:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     24e:	64 e4       	ldi	r22, 0x44	; 68
+     250:	87 e0       	ldi	r24, 0x07	; 7
+     252:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     256:	2f ef       	ldi	r18, 0xFF	; 255
+     258:	84 e3       	ldi	r24, 0x34	; 52
+     25a:	9c e0       	ldi	r25, 0x0C	; 12
+     25c:	21 50       	subi	r18, 0x01	; 1
+     25e:	80 40       	sbci	r24, 0x00	; 0
+     260:	90 40       	sbci	r25, 0x00	; 0
+     262:	e1 f7       	brne	.-8      	; 0x25c <gameOver+0xda>
+     264:	00 c0       	rjmp	.+0      	; 0x266 <gameOver+0xe4>
+     266:	00 00       	nop
+     268:	0e 94 2c 08 	call	0x1058	; 0x1058 <MAX7219_clear>
+     26c:	6c e7       	ldi	r22, 0x7C	; 124
+     26e:	81 e0       	ldi	r24, 0x01	; 1
+     270:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     274:	60 e4       	ldi	r22, 0x40	; 64
+     276:	82 e0       	ldi	r24, 0x02	; 2
+     278:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     27c:	60 e4       	ldi	r22, 0x40	; 64
+     27e:	83 e0       	ldi	r24, 0x03	; 3
+     280:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     284:	6c e7       	ldi	r22, 0x7C	; 124
+     286:	84 e0       	ldi	r24, 0x04	; 4
+     288:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     28c:	60 e4       	ldi	r22, 0x40	; 64
+     28e:	85 e0       	ldi	r24, 0x05	; 5
+     290:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     294:	60 e4       	ldi	r22, 0x40	; 64
+     296:	86 e0       	ldi	r24, 0x06	; 6
+     298:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     29c:	6c e7       	ldi	r22, 0x7C	; 124
+     29e:	87 e0       	ldi	r24, 0x07	; 7
+     2a0:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     2a4:	2f ef       	ldi	r18, 0xFF	; 255
+     2a6:	84 e3       	ldi	r24, 0x34	; 52
+     2a8:	9c e0       	ldi	r25, 0x0C	; 12
+     2aa:	21 50       	subi	r18, 0x01	; 1
+     2ac:	80 40       	sbci	r24, 0x00	; 0
+     2ae:	90 40       	sbci	r25, 0x00	; 0
+     2b0:	e1 f7       	brne	.-8      	; 0x2aa <gameOver+0x128>
+     2b2:	00 c0       	rjmp	.+0      	; 0x2b4 <gameOver+0x132>
+     2b4:	00 00       	nop
+     2b6:	0e 94 2c 08 	call	0x1058	; 0x1058 <MAX7219_clear>
+     2ba:	6e ef       	ldi	r22, 0xFE	; 254
+     2bc:	86 e0       	ldi	r24, 0x06	; 6
+     2be:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     2c2:	6e ef       	ldi	r22, 0xFE	; 254
+     2c4:	85 e0       	ldi	r24, 0x05	; 5
+     2c6:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     2ca:	62 e8       	ldi	r22, 0x82	; 130
+     2cc:	84 e0       	ldi	r24, 0x04	; 4
+     2ce:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     2d2:	6e ef       	ldi	r22, 0xFE	; 254
+     2d4:	83 e0       	ldi	r24, 0x03	; 3
+     2d6:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     2da:	6e ef       	ldi	r22, 0xFE	; 254
+     2dc:	82 e0       	ldi	r24, 0x02	; 2
+     2de:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     2e2:	2f ef       	ldi	r18, 0xFF	; 255
+     2e4:	84 e3       	ldi	r24, 0x34	; 52
+     2e6:	9c e0       	ldi	r25, 0x0C	; 12
+     2e8:	21 50       	subi	r18, 0x01	; 1
+     2ea:	80 40       	sbci	r24, 0x00	; 0
+     2ec:	90 40       	sbci	r25, 0x00	; 0
+     2ee:	e1 f7       	brne	.-8      	; 0x2e8 <gameOver+0x166>
+     2f0:	00 c0       	rjmp	.+0      	; 0x2f2 <gameOver+0x170>
+     2f2:	00 00       	nop
+     2f4:	0e 94 2c 08 	call	0x1058	; 0x1058 <MAX7219_clear>
+     2f8:	6e e7       	ldi	r22, 0x7E	; 126
+     2fa:	86 e0       	ldi	r24, 0x06	; 6
+     2fc:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     300:	60 ee       	ldi	r22, 0xE0	; 224
+     302:	85 e0       	ldi	r24, 0x05	; 5
+     304:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     308:	60 ec       	ldi	r22, 0xC0	; 192
+     30a:	84 e0       	ldi	r24, 0x04	; 4
+     30c:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     310:	60 ee       	ldi	r22, 0xE0	; 224
+     312:	83 e0       	ldi	r24, 0x03	; 3
+     314:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     318:	6e e7       	ldi	r22, 0x7E	; 126
+     31a:	82 e0       	ldi	r24, 0x02	; 2
+     31c:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     320:	2f ef       	ldi	r18, 0xFF	; 255
+     322:	84 e3       	ldi	r24, 0x34	; 52
+     324:	9c e0       	ldi	r25, 0x0C	; 12
+     326:	21 50       	subi	r18, 0x01	; 1
+     328:	80 40       	sbci	r24, 0x00	; 0
+     32a:	90 40       	sbci	r25, 0x00	; 0
+     32c:	e1 f7       	brne	.-8      	; 0x326 <gameOver+0x1a4>
+     32e:	00 c0       	rjmp	.+0      	; 0x330 <gameOver+0x1ae>
+     330:	00 00       	nop
+     332:	0e 94 2c 08 	call	0x1058	; 0x1058 <MAX7219_clear>
+     336:	6c e7       	ldi	r22, 0x7C	; 124
+     338:	81 e0       	ldi	r24, 0x01	; 1
+     33a:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     33e:	60 e4       	ldi	r22, 0x40	; 64
+     340:	82 e0       	ldi	r24, 0x02	; 2
+     342:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     346:	60 e4       	ldi	r22, 0x40	; 64
+     348:	83 e0       	ldi	r24, 0x03	; 3
+     34a:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     34e:	6c e7       	ldi	r22, 0x7C	; 124
+     350:	84 e0       	ldi	r24, 0x04	; 4
+     352:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     356:	60 e4       	ldi	r22, 0x40	; 64
+     358:	85 e0       	ldi	r24, 0x05	; 5
+     35a:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     35e:	60 e4       	ldi	r22, 0x40	; 64
+     360:	86 e0       	ldi	r24, 0x06	; 6
+     362:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     366:	6c e7       	ldi	r22, 0x7C	; 124
+     368:	87 e0       	ldi	r24, 0x07	; 7
+     36a:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     36e:	2f ef       	ldi	r18, 0xFF	; 255
+     370:	84 e3       	ldi	r24, 0x34	; 52
+     372:	9c e0       	ldi	r25, 0x0C	; 12
+     374:	21 50       	subi	r18, 0x01	; 1
+     376:	80 40       	sbci	r24, 0x00	; 0
+     378:	90 40       	sbci	r25, 0x00	; 0
+     37a:	e1 f7       	brne	.-8      	; 0x374 <gameOver+0x1f2>
+     37c:	00 c0       	rjmp	.+0      	; 0x37e <gameOver+0x1fc>
+     37e:	00 00       	nop
+     380:	0e 94 2c 08 	call	0x1058	; 0x1058 <MAX7219_clear>
+     384:	6c e7       	ldi	r22, 0x7C	; 124
+     386:	81 e0       	ldi	r24, 0x01	; 1
+     388:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     38c:	64 e4       	ldi	r22, 0x44	; 68
+     38e:	82 e0       	ldi	r24, 0x02	; 2
+     390:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     394:	64 e4       	ldi	r22, 0x44	; 68
+     396:	83 e0       	ldi	r24, 0x03	; 3
+     398:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     39c:	6c e7       	ldi	r22, 0x7C	; 124
+     39e:	84 e0       	ldi	r24, 0x04	; 4
+     3a0:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     3a4:	60 e7       	ldi	r22, 0x70	; 112
+     3a6:	85 e0       	ldi	r24, 0x05	; 5
+     3a8:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     3ac:	68 e5       	ldi	r22, 0x58	; 88
+     3ae:	86 e0       	ldi	r24, 0x06	; 6
+     3b0:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     3b4:	6c e4       	ldi	r22, 0x4C	; 76
+     3b6:	87 e0       	ldi	r24, 0x07	; 7
+     3b8:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     3bc:	2f ef       	ldi	r18, 0xFF	; 255
+     3be:	84 e3       	ldi	r24, 0x34	; 52
+     3c0:	9c e0       	ldi	r25, 0x0C	; 12
+     3c2:	21 50       	subi	r18, 0x01	; 1
+     3c4:	80 40       	sbci	r24, 0x00	; 0
+     3c6:	90 40       	sbci	r25, 0x00	; 0
+     3c8:	e1 f7       	brne	.-8      	; 0x3c2 <gameOver+0x240>
+     3ca:	00 c0       	rjmp	.+0      	; 0x3cc <gameOver+0x24a>
+     3cc:	00 00       	nop
+     3ce:	0e 94 2c 08 	call	0x1058	; 0x1058 <MAX7219_clear>
+     3d2:	0e 94 a8 00 	call	0x150	; 0x150 <MAX7219_clear_7SEG>
+     3d6:	81 e0       	ldi	r24, 0x01	; 1
+     3d8:	90 e0       	ldi	r25, 0x00	; 0
+     3da:	90 93 0d 01 	sts	0x010D, r25	; 0x80010d <END+0x1>
+     3de:	80 93 0c 01 	sts	0x010C, r24	; 0x80010c <END>
+     3e2:	08 95       	ret
+
+000003e4 <snake>:
+     3e4:	6c e7       	ldi	r22, 0x7C	; 124
+     3e6:	81 e0       	ldi	r24, 0x01	; 1
+     3e8:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     3ec:	60 e4       	ldi	r22, 0x40	; 64
+     3ee:	82 e0       	ldi	r24, 0x02	; 2
+     3f0:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     3f4:	60 e4       	ldi	r22, 0x40	; 64
+     3f6:	83 e0       	ldi	r24, 0x03	; 3
+     3f8:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     3fc:	6c e7       	ldi	r22, 0x7C	; 124
+     3fe:	84 e0       	ldi	r24, 0x04	; 4
+     400:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     404:	64 e0       	ldi	r22, 0x04	; 4
+     406:	85 e0       	ldi	r24, 0x05	; 5
+     408:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     40c:	64 e0       	ldi	r22, 0x04	; 4
+     40e:	86 e0       	ldi	r24, 0x06	; 6
+     410:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     414:	6c e7       	ldi	r22, 0x7C	; 124
+     416:	87 e0       	ldi	r24, 0x07	; 7
+     418:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     41c:	2f ef       	ldi	r18, 0xFF	; 255
+     41e:	84 e3       	ldi	r24, 0x34	; 52
+     420:	9c e0       	ldi	r25, 0x0C	; 12
+     422:	21 50       	subi	r18, 0x01	; 1
+     424:	80 40       	sbci	r24, 0x00	; 0
+     426:	90 40       	sbci	r25, 0x00	; 0
+     428:	e1 f7       	brne	.-8      	; 0x422 <__LOCK_REGION_LENGTH__+0x22>
+     42a:	00 c0       	rjmp	.+0      	; 0x42c <__LOCK_REGION_LENGTH__+0x2c>
+     42c:	00 00       	nop
+     42e:	0e 94 2c 08 	call	0x1058	; 0x1058 <MAX7219_clear>
+     432:	64 e6       	ldi	r22, 0x64	; 100
+     434:	81 e0       	ldi	r24, 0x01	; 1
+     436:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     43a:	64 e6       	ldi	r22, 0x64	; 100
+     43c:	82 e0       	ldi	r24, 0x02	; 2
+     43e:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     442:	64 e7       	ldi	r22, 0x74	; 116
+     444:	83 e0       	ldi	r24, 0x03	; 3
+     446:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     44a:	64 e5       	ldi	r22, 0x54	; 84
+     44c:	84 e0       	ldi	r24, 0x04	; 4
+     44e:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     452:	6c e5       	ldi	r22, 0x5C	; 92
+     454:	85 e0       	ldi	r24, 0x05	; 5
+     456:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     45a:	6c e4       	ldi	r22, 0x4C	; 76
+     45c:	86 e0       	ldi	r24, 0x06	; 6
+     45e:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     462:	6c e4       	ldi	r22, 0x4C	; 76
+     464:	87 e0       	ldi	r24, 0x07	; 7
+     466:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     46a:	2f ef       	ldi	r18, 0xFF	; 255
+     46c:	84 e3       	ldi	r24, 0x34	; 52
+     46e:	9c e0       	ldi	r25, 0x0C	; 12
+     470:	21 50       	subi	r18, 0x01	; 1
+     472:	80 40       	sbci	r24, 0x00	; 0
+     474:	90 40       	sbci	r25, 0x00	; 0
+     476:	e1 f7       	brne	.-8      	; 0x470 <__LOCK_REGION_LENGTH__+0x70>
+     478:	00 c0       	rjmp	.+0      	; 0x47a <__LOCK_REGION_LENGTH__+0x7a>
+     47a:	00 00       	nop
+     47c:	0e 94 2c 08 	call	0x1058	; 0x1058 <MAX7219_clear>
+     480:	6c e7       	ldi	r22, 0x7C	; 124
+     482:	81 e0       	ldi	r24, 0x01	; 1
+     484:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     488:	64 e4       	ldi	r22, 0x44	; 68
+     48a:	82 e0       	ldi	r24, 0x02	; 2
+     48c:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     490:	64 e4       	ldi	r22, 0x44	; 68
+     492:	83 e0       	ldi	r24, 0x03	; 3
+     494:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     498:	6c e7       	ldi	r22, 0x7C	; 124
+     49a:	84 e0       	ldi	r24, 0x04	; 4
+     49c:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     4a0:	64 e4       	ldi	r22, 0x44	; 68
+     4a2:	85 e0       	ldi	r24, 0x05	; 5
+     4a4:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     4a8:	64 e4       	ldi	r22, 0x44	; 68
+     4aa:	86 e0       	ldi	r24, 0x06	; 6
+     4ac:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     4b0:	64 e4       	ldi	r22, 0x44	; 68
+     4b2:	87 e0       	ldi	r24, 0x07	; 7
+     4b4:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     4b8:	2f ef       	ldi	r18, 0xFF	; 255
+     4ba:	84 e3       	ldi	r24, 0x34	; 52
+     4bc:	9c e0       	ldi	r25, 0x0C	; 12
+     4be:	21 50       	subi	r18, 0x01	; 1
+     4c0:	80 40       	sbci	r24, 0x00	; 0
+     4c2:	90 40       	sbci	r25, 0x00	; 0
+     4c4:	e1 f7       	brne	.-8      	; 0x4be <__LOCK_REGION_LENGTH__+0xbe>
+     4c6:	00 c0       	rjmp	.+0      	; 0x4c8 <__LOCK_REGION_LENGTH__+0xc8>
+     4c8:	00 00       	nop
+     4ca:	0e 94 2c 08 	call	0x1058	; 0x1058 <MAX7219_clear>
+     4ce:	6c e4       	ldi	r22, 0x4C	; 76
+     4d0:	81 e0       	ldi	r24, 0x01	; 1
+     4d2:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     4d6:	68 e5       	ldi	r22, 0x58	; 88
+     4d8:	82 e0       	ldi	r24, 0x02	; 2
+     4da:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     4de:	60 e7       	ldi	r22, 0x70	; 112
+     4e0:	83 e0       	ldi	r24, 0x03	; 3
+     4e2:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     4e6:	60 e6       	ldi	r22, 0x60	; 96
+     4e8:	84 e0       	ldi	r24, 0x04	; 4
+     4ea:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     4ee:	60 e7       	ldi	r22, 0x70	; 112
+     4f0:	85 e0       	ldi	r24, 0x05	; 5
+     4f2:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     4f6:	68 e5       	ldi	r22, 0x58	; 88
+     4f8:	86 e0       	ldi	r24, 0x06	; 6
+     4fa:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     4fe:	6c e4       	ldi	r22, 0x4C	; 76
+     500:	87 e0       	ldi	r24, 0x07	; 7
+     502:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     506:	2f ef       	ldi	r18, 0xFF	; 255
+     508:	84 e3       	ldi	r24, 0x34	; 52
+     50a:	9c e0       	ldi	r25, 0x0C	; 12
+     50c:	21 50       	subi	r18, 0x01	; 1
+     50e:	80 40       	sbci	r24, 0x00	; 0
+     510:	90 40       	sbci	r25, 0x00	; 0
+     512:	e1 f7       	brne	.-8      	; 0x50c <__LOCK_REGION_LENGTH__+0x10c>
+     514:	00 c0       	rjmp	.+0      	; 0x516 <__LOCK_REGION_LENGTH__+0x116>
+     516:	00 00       	nop
+     518:	0e 94 2c 08 	call	0x1058	; 0x1058 <MAX7219_clear>
+     51c:	6c e7       	ldi	r22, 0x7C	; 124
+     51e:	81 e0       	ldi	r24, 0x01	; 1
+     520:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     524:	60 e4       	ldi	r22, 0x40	; 64
+     526:	82 e0       	ldi	r24, 0x02	; 2
+     528:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     52c:	60 e4       	ldi	r22, 0x40	; 64
+     52e:	83 e0       	ldi	r24, 0x03	; 3
+     530:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     534:	6c e7       	ldi	r22, 0x7C	; 124
+     536:	84 e0       	ldi	r24, 0x04	; 4
+     538:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     53c:	60 e4       	ldi	r22, 0x40	; 64
+     53e:	85 e0       	ldi	r24, 0x05	; 5
+     540:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     544:	60 e4       	ldi	r22, 0x40	; 64
+     546:	86 e0       	ldi	r24, 0x06	; 6
+     548:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     54c:	6c e7       	ldi	r22, 0x7C	; 124
+     54e:	87 e0       	ldi	r24, 0x07	; 7
+     550:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     554:	2f ef       	ldi	r18, 0xFF	; 255
+     556:	84 e3       	ldi	r24, 0x34	; 52
+     558:	9c e0       	ldi	r25, 0x0C	; 12
+     55a:	21 50       	subi	r18, 0x01	; 1
+     55c:	80 40       	sbci	r24, 0x00	; 0
+     55e:	90 40       	sbci	r25, 0x00	; 0
+     560:	e1 f7       	brne	.-8      	; 0x55a <__LOCK_REGION_LENGTH__+0x15a>
+     562:	00 c0       	rjmp	.+0      	; 0x564 <__LOCK_REGION_LENGTH__+0x164>
+     564:	00 00       	nop
+     566:	0e 94 2c 08 	call	0x1058	; 0x1058 <MAX7219_clear>
+     56a:	60 e8       	ldi	r22, 0x80	; 128
+     56c:	81 e0       	ldi	r24, 0x01	; 1
+     56e:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     572:	60 e8       	ldi	r22, 0x80	; 128
+     574:	82 e0       	ldi	r24, 0x02	; 2
+     576:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     57a:	6e ef       	ldi	r22, 0xFE	; 254
+     57c:	83 e0       	ldi	r24, 0x03	; 3
+     57e:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     582:	62 e8       	ldi	r22, 0x82	; 130
+     584:	84 e0       	ldi	r24, 0x04	; 4
+     586:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     58a:	62 e8       	ldi	r22, 0x82	; 130
+     58c:	85 e0       	ldi	r24, 0x05	; 5
+     58e:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     592:	2f ef       	ldi	r18, 0xFF	; 255
+     594:	84 e3       	ldi	r24, 0x34	; 52
+     596:	9c e0       	ldi	r25, 0x0C	; 12
+     598:	21 50       	subi	r18, 0x01	; 1
+     59a:	80 40       	sbci	r24, 0x00	; 0
+     59c:	90 40       	sbci	r25, 0x00	; 0
+     59e:	e1 f7       	brne	.-8      	; 0x598 <__LOCK_REGION_LENGTH__+0x198>
+     5a0:	00 c0       	rjmp	.+0      	; 0x5a2 <__LOCK_REGION_LENGTH__+0x1a2>
+     5a2:	00 00       	nop
+     5a4:	0e 94 2c 08 	call	0x1058	; 0x1058 <MAX7219_clear>
+     5a8:	6e e9       	ldi	r22, 0x9E	; 158
+     5aa:	82 e0       	ldi	r24, 0x02	; 2
+     5ac:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     5b0:	62 e9       	ldi	r22, 0x92	; 146
+     5b2:	83 e0       	ldi	r24, 0x03	; 3
+     5b4:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     5b8:	62 e9       	ldi	r22, 0x92	; 146
+     5ba:	84 e0       	ldi	r24, 0x04	; 4
+     5bc:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     5c0:	62 ef       	ldi	r22, 0xF2	; 242
+     5c2:	85 e0       	ldi	r24, 0x05	; 5
+     5c4:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     5c8:	2f ef       	ldi	r18, 0xFF	; 255
+     5ca:	84 e3       	ldi	r24, 0x34	; 52
+     5cc:	9c e0       	ldi	r25, 0x0C	; 12
+     5ce:	21 50       	subi	r18, 0x01	; 1
+     5d0:	80 40       	sbci	r24, 0x00	; 0
+     5d2:	90 40       	sbci	r25, 0x00	; 0
+     5d4:	e1 f7       	brne	.-8      	; 0x5ce <__LOCK_REGION_LENGTH__+0x1ce>
+     5d6:	00 c0       	rjmp	.+0      	; 0x5d8 <__LOCK_REGION_LENGTH__+0x1d8>
+     5d8:	00 00       	nop
+     5da:	0e 94 2c 08 	call	0x1058	; 0x1058 <MAX7219_clear>
+     5de:	6e ef       	ldi	r22, 0xFE	; 254
+     5e0:	82 e0       	ldi	r24, 0x02	; 2
+     5e2:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     5e6:	62 e9       	ldi	r22, 0x92	; 146
+     5e8:	83 e0       	ldi	r24, 0x03	; 3
+     5ea:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     5ee:	62 e9       	ldi	r22, 0x92	; 146
+     5f0:	84 e0       	ldi	r24, 0x04	; 4
+     5f2:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     5f6:	62 e9       	ldi	r22, 0x92	; 146
+     5f8:	85 e0       	ldi	r24, 0x05	; 5
+     5fa:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     5fe:	2f ef       	ldi	r18, 0xFF	; 255
+     600:	84 e3       	ldi	r24, 0x34	; 52
+     602:	9c e0       	ldi	r25, 0x0C	; 12
+     604:	21 50       	subi	r18, 0x01	; 1
+     606:	80 40       	sbci	r24, 0x00	; 0
+     608:	90 40       	sbci	r25, 0x00	; 0
+     60a:	e1 f7       	brne	.-8      	; 0x604 <__LOCK_REGION_LENGTH__+0x204>
+     60c:	00 c0       	rjmp	.+0      	; 0x60e <__LOCK_REGION_LENGTH__+0x20e>
+     60e:	00 00       	nop
+     610:	0e 94 2c 08 	call	0x1058	; 0x1058 <MAX7219_clear>
+     614:	08 95       	ret
+
+00000616 <yoUwin>:
+     616:	64 e4       	ldi	r22, 0x44	; 68
+     618:	81 e0       	ldi	r24, 0x01	; 1
+     61a:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     61e:	64 e4       	ldi	r22, 0x44	; 68
+     620:	82 e0       	ldi	r24, 0x02	; 2
+     622:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     626:	64 e4       	ldi	r22, 0x44	; 68
+     628:	83 e0       	ldi	r24, 0x03	; 3
+     62a:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     62e:	6c e7       	ldi	r22, 0x7C	; 124
+     630:	84 e0       	ldi	r24, 0x04	; 4
+     632:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     636:	60 e1       	ldi	r22, 0x10	; 16
+     638:	85 e0       	ldi	r24, 0x05	; 5
+     63a:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     63e:	60 e1       	ldi	r22, 0x10	; 16
+     640:	86 e0       	ldi	r24, 0x06	; 6
+     642:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     646:	60 e1       	ldi	r22, 0x10	; 16
+     648:	87 e0       	ldi	r24, 0x07	; 7
+     64a:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     64e:	2f ef       	ldi	r18, 0xFF	; 255
+     650:	84 e3       	ldi	r24, 0x34	; 52
+     652:	9c e0       	ldi	r25, 0x0C	; 12
+     654:	21 50       	subi	r18, 0x01	; 1
+     656:	80 40       	sbci	r24, 0x00	; 0
+     658:	90 40       	sbci	r25, 0x00	; 0
+     65a:	e1 f7       	brne	.-8      	; 0x654 <yoUwin+0x3e>
+     65c:	00 c0       	rjmp	.+0      	; 0x65e <yoUwin+0x48>
+     65e:	00 00       	nop
+     660:	0e 94 2c 08 	call	0x1058	; 0x1058 <MAX7219_clear>
+     664:	6e ef       	ldi	r22, 0xFE	; 254
+     666:	86 e0       	ldi	r24, 0x06	; 6
+     668:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     66c:	6e ef       	ldi	r22, 0xFE	; 254
+     66e:	85 e0       	ldi	r24, 0x05	; 5
+     670:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     674:	62 e8       	ldi	r22, 0x82	; 130
+     676:	84 e0       	ldi	r24, 0x04	; 4
+     678:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     67c:	6e ef       	ldi	r22, 0xFE	; 254
+     67e:	83 e0       	ldi	r24, 0x03	; 3
+     680:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     684:	6e ef       	ldi	r22, 0xFE	; 254
+     686:	82 e0       	ldi	r24, 0x02	; 2
+     688:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     68c:	2f ef       	ldi	r18, 0xFF	; 255
+     68e:	84 e3       	ldi	r24, 0x34	; 52
+     690:	9c e0       	ldi	r25, 0x0C	; 12
+     692:	21 50       	subi	r18, 0x01	; 1
+     694:	80 40       	sbci	r24, 0x00	; 0
+     696:	90 40       	sbci	r25, 0x00	; 0
+     698:	e1 f7       	brne	.-8      	; 0x692 <yoUwin+0x7c>
+     69a:	00 c0       	rjmp	.+0      	; 0x69c <yoUwin+0x86>
+     69c:	00 00       	nop
+     69e:	0e 94 2c 08 	call	0x1058	; 0x1058 <MAX7219_clear>
+     6a2:	64 e4       	ldi	r22, 0x44	; 68
+     6a4:	81 e0       	ldi	r24, 0x01	; 1
+     6a6:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     6aa:	64 e4       	ldi	r22, 0x44	; 68
+     6ac:	82 e0       	ldi	r24, 0x02	; 2
+     6ae:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     6b2:	64 e4       	ldi	r22, 0x44	; 68
+     6b4:	83 e0       	ldi	r24, 0x03	; 3
+     6b6:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     6ba:	64 e4       	ldi	r22, 0x44	; 68
+     6bc:	84 e0       	ldi	r24, 0x04	; 4
+     6be:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     6c2:	64 e4       	ldi	r22, 0x44	; 68
+     6c4:	85 e0       	ldi	r24, 0x05	; 5
+     6c6:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     6ca:	64 e4       	ldi	r22, 0x44	; 68
+     6cc:	86 e0       	ldi	r24, 0x06	; 6
+     6ce:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     6d2:	6c e7       	ldi	r22, 0x7C	; 124
+     6d4:	87 e0       	ldi	r24, 0x07	; 7
+     6d6:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     6da:	2f ef       	ldi	r18, 0xFF	; 255
+     6dc:	84 e3       	ldi	r24, 0x34	; 52
+     6de:	9c e0       	ldi	r25, 0x0C	; 12
+     6e0:	21 50       	subi	r18, 0x01	; 1
+     6e2:	80 40       	sbci	r24, 0x00	; 0
+     6e4:	90 40       	sbci	r25, 0x00	; 0
+     6e6:	e1 f7       	brne	.-8      	; 0x6e0 <yoUwin+0xca>
+     6e8:	00 c0       	rjmp	.+0      	; 0x6ea <yoUwin+0xd4>
+     6ea:	00 00       	nop
+     6ec:	0e 94 2c 08 	call	0x1058	; 0x1058 <MAX7219_clear>
+     6f0:	64 e4       	ldi	r22, 0x44	; 68
+     6f2:	81 e0       	ldi	r24, 0x01	; 1
+     6f4:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     6f8:	64 e4       	ldi	r22, 0x44	; 68
+     6fa:	82 e0       	ldi	r24, 0x02	; 2
+     6fc:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     700:	64 e5       	ldi	r22, 0x54	; 84
+     702:	83 e0       	ldi	r24, 0x03	; 3
+     704:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     708:	64 e5       	ldi	r22, 0x54	; 84
+     70a:	84 e0       	ldi	r24, 0x04	; 4
+     70c:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     710:	6c e7       	ldi	r22, 0x7C	; 124
+     712:	85 e0       	ldi	r24, 0x05	; 5
+     714:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     718:	6c e6       	ldi	r22, 0x6C	; 108
+     71a:	86 e0       	ldi	r24, 0x06	; 6
+     71c:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     720:	64 e4       	ldi	r22, 0x44	; 68
+     722:	87 e0       	ldi	r24, 0x07	; 7
+     724:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     728:	2f ef       	ldi	r18, 0xFF	; 255
+     72a:	84 e3       	ldi	r24, 0x34	; 52
+     72c:	9c e0       	ldi	r25, 0x0C	; 12
+     72e:	21 50       	subi	r18, 0x01	; 1
+     730:	80 40       	sbci	r24, 0x00	; 0
+     732:	90 40       	sbci	r25, 0x00	; 0
+     734:	e1 f7       	brne	.-8      	; 0x72e <yoUwin+0x118>
+     736:	00 c0       	rjmp	.+0      	; 0x738 <yoUwin+0x122>
+     738:	00 00       	nop
+     73a:	0e 94 2c 08 	call	0x1058	; 0x1058 <MAX7219_clear>
+     73e:	6c e7       	ldi	r22, 0x7C	; 124
+     740:	81 e0       	ldi	r24, 0x01	; 1
+     742:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     746:	60 e1       	ldi	r22, 0x10	; 16
+     748:	82 e0       	ldi	r24, 0x02	; 2
+     74a:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     74e:	60 e1       	ldi	r22, 0x10	; 16
+     750:	83 e0       	ldi	r24, 0x03	; 3
+     752:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     756:	60 e1       	ldi	r22, 0x10	; 16
+     758:	84 e0       	ldi	r24, 0x04	; 4
+     75a:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     75e:	60 e1       	ldi	r22, 0x10	; 16
+     760:	85 e0       	ldi	r24, 0x05	; 5
+     762:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     766:	60 e1       	ldi	r22, 0x10	; 16
+     768:	86 e0       	ldi	r24, 0x06	; 6
+     76a:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     76e:	6c e7       	ldi	r22, 0x7C	; 124
+     770:	87 e0       	ldi	r24, 0x07	; 7
+     772:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     776:	2f ef       	ldi	r18, 0xFF	; 255
+     778:	84 e3       	ldi	r24, 0x34	; 52
+     77a:	9c e0       	ldi	r25, 0x0C	; 12
+     77c:	21 50       	subi	r18, 0x01	; 1
+     77e:	80 40       	sbci	r24, 0x00	; 0
+     780:	90 40       	sbci	r25, 0x00	; 0
+     782:	e1 f7       	brne	.-8      	; 0x77c <yoUwin+0x166>
+     784:	00 c0       	rjmp	.+0      	; 0x786 <yoUwin+0x170>
+     786:	00 00       	nop
+     788:	0e 94 2c 08 	call	0x1058	; 0x1058 <MAX7219_clear>
+     78c:	64 e6       	ldi	r22, 0x64	; 100
+     78e:	81 e0       	ldi	r24, 0x01	; 1
+     790:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     794:	64 e6       	ldi	r22, 0x64	; 100
+     796:	82 e0       	ldi	r24, 0x02	; 2
+     798:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     79c:	64 e7       	ldi	r22, 0x74	; 116
+     79e:	83 e0       	ldi	r24, 0x03	; 3
+     7a0:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     7a4:	64 e5       	ldi	r22, 0x54	; 84
+     7a6:	84 e0       	ldi	r24, 0x04	; 4
+     7a8:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     7ac:	6c e5       	ldi	r22, 0x5C	; 92
+     7ae:	85 e0       	ldi	r24, 0x05	; 5
+     7b0:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     7b4:	6c e4       	ldi	r22, 0x4C	; 76
+     7b6:	86 e0       	ldi	r24, 0x06	; 6
+     7b8:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     7bc:	6c e4       	ldi	r22, 0x4C	; 76
+     7be:	87 e0       	ldi	r24, 0x07	; 7
+     7c0:	0e 94 02 08 	call	0x1004	; 0x1004 <MAX7219_set_row>
+     7c4:	2f ef       	ldi	r18, 0xFF	; 255
+     7c6:	84 e3       	ldi	r24, 0x34	; 52
+     7c8:	9c e0       	ldi	r25, 0x0C	; 12
+     7ca:	21 50       	subi	r18, 0x01	; 1
+     7cc:	80 40       	sbci	r24, 0x00	; 0
+     7ce:	90 40       	sbci	r25, 0x00	; 0
+     7d0:	e1 f7       	brne	.-8      	; 0x7ca <yoUwin+0x1b4>
+     7d2:	00 c0       	rjmp	.+0      	; 0x7d4 <yoUwin+0x1be>
+     7d4:	00 00       	nop
+     7d6:	0e 94 2c 08 	call	0x1058	; 0x1058 <MAX7219_clear>
+     7da:	81 e0       	ldi	r24, 0x01	; 1
+     7dc:	90 e0       	ldi	r25, 0x00	; 0
+     7de:	90 93 0d 01 	sts	0x010D, r25	; 0x80010d <END+0x1>
+     7e2:	80 93 0c 01 	sts	0x010C, r24	; 0x80010c <END>
+     7e6:	08 95       	ret
+
+000007e8 <FDscore>:
+     7e8:	80 91 0a 01 	lds	r24, 0x010A	; 0x80010a <score>
+     7ec:	90 91 0b 01 	lds	r25, 0x010B	; 0x80010b <score+0x1>
+     7f0:	89 2b       	or	r24, r25
+     7f2:	31 f4       	brne	.+12     	; 0x800 <FDscore+0x18>
+     7f4:	0e 94 a8 00 	call	0x150	; 0x150 <MAX7219_clear_7SEG>
+     7f8:	6e ef       	ldi	r22, 0xFE	; 254
+     7fa:	80 e0       	ldi	r24, 0x00	; 0
+     7fc:	0e 94 96 00 	call	0x12c	; 0x12c <MAX7219_set_row_7SEG>
+     800:	80 91 0a 01 	lds	r24, 0x010A	; 0x80010a <score>
+     804:	90 91 0b 01 	lds	r25, 0x010B	; 0x80010b <score+0x1>
+     808:	01 97       	sbiw	r24, 0x01	; 1
+     80a:	31 f4       	brne	.+12     	; 0x818 <FDscore+0x30>
+     80c:	0e 94 a8 00 	call	0x150	; 0x150 <MAX7219_clear_7SEG>
+     810:	60 eb       	ldi	r22, 0xB0	; 176
+     812:	80 e0       	ldi	r24, 0x00	; 0
+     814:	0e 94 96 00 	call	0x12c	; 0x12c <MAX7219_set_row_7SEG>
+     818:	80 91 0a 01 	lds	r24, 0x010A	; 0x80010a <score>
+     81c:	90 91 0b 01 	lds	r25, 0x010B	; 0x80010b <score+0x1>
+     820:	02 97       	sbiw	r24, 0x02	; 2
+     822:	31 f4       	brne	.+12     	; 0x830 <FDscore+0x48>
+     824:	0e 94 a8 00 	call	0x150	; 0x150 <MAX7219_clear_7SEG>
+     828:	6d ee       	ldi	r22, 0xED	; 237
+     82a:	80 e0       	ldi	r24, 0x00	; 0
+     82c:	0e 94 96 00 	call	0x12c	; 0x12c <MAX7219_set_row_7SEG>
+     830:	80 91 0a 01 	lds	r24, 0x010A	; 0x80010a <score>
+     834:	90 91 0b 01 	lds	r25, 0x010B	; 0x80010b <score+0x1>
+     838:	03 97       	sbiw	r24, 0x03	; 3
+     83a:	31 f4       	brne	.+12     	; 0x848 <FDscore+0x60>
+     83c:	0e 94 a8 00 	call	0x150	; 0x150 <MAX7219_clear_7SEG>
+     840:	69 ef       	ldi	r22, 0xF9	; 249
+     842:	80 e0       	ldi	r24, 0x00	; 0
+     844:	0e 94 96 00 	call	0x12c	; 0x12c <MAX7219_set_row_7SEG>
+     848:	80 91 0a 01 	lds	r24, 0x010A	; 0x80010a <score>
+     84c:	90 91 0b 01 	lds	r25, 0x010B	; 0x80010b <score+0x1>
+     850:	04 97       	sbiw	r24, 0x04	; 4
+     852:	31 f4       	brne	.+12     	; 0x860 <FDscore+0x78>
+     854:	0e 94 a8 00 	call	0x150	; 0x150 <MAX7219_clear_7SEG>
+     858:	63 eb       	ldi	r22, 0xB3	; 179
+     85a:	80 e0       	ldi	r24, 0x00	; 0
+     85c:	0e 94 96 00 	call	0x12c	; 0x12c <MAX7219_set_row_7SEG>
+     860:	80 91 0a 01 	lds	r24, 0x010A	; 0x80010a <score>
+     864:	90 91 0b 01 	lds	r25, 0x010B	; 0x80010b <score+0x1>
+     868:	05 97       	sbiw	r24, 0x05	; 5
+     86a:	31 f4       	brne	.+12     	; 0x878 <FDscore+0x90>
+     86c:	0e 94 a8 00 	call	0x150	; 0x150 <MAX7219_clear_7SEG>
+     870:	6b ed       	ldi	r22, 0xDB	; 219
+     872:	80 e0       	ldi	r24, 0x00	; 0
+     874:	0e 94 96 00 	call	0x12c	; 0x12c <MAX7219_set_row_7SEG>
+     878:	80 91 0a 01 	lds	r24, 0x010A	; 0x80010a <score>
+     87c:	90 91 0b 01 	lds	r25, 0x010B	; 0x80010b <score+0x1>
+     880:	06 97       	sbiw	r24, 0x06	; 6
+     882:	31 f4       	brne	.+12     	; 0x890 <FDscore+0xa8>
+     884:	0e 94 a8 00 	call	0x150	; 0x150 <MAX7219_clear_7SEG>
+     888:	6f ed       	ldi	r22, 0xDF	; 223
+     88a:	80 e0       	ldi	r24, 0x00	; 0
+     88c:	0e 94 96 00 	call	0x12c	; 0x12c <MAX7219_set_row_7SEG>
+     890:	80 91 0a 01 	lds	r24, 0x010A	; 0x80010a <score>
+     894:	90 91 0b 01 	lds	r25, 0x010B	; 0x80010b <score+0x1>
+     898:	07 97       	sbiw	r24, 0x07	; 7
+     89a:	31 f4       	brne	.+12     	; 0x8a8 <FDscore+0xc0>
+     89c:	0e 94 a8 00 	call	0x150	; 0x150 <MAX7219_clear_7SEG>
+     8a0:	60 ef       	ldi	r22, 0xF0	; 240
+     8a2:	80 e0       	ldi	r24, 0x00	; 0
+     8a4:	0e 94 96 00 	call	0x12c	; 0x12c <MAX7219_set_row_7SEG>
+     8a8:	80 91 0a 01 	lds	r24, 0x010A	; 0x80010a <score>
+     8ac:	90 91 0b 01 	lds	r25, 0x010B	; 0x80010b <score+0x1>
+     8b0:	08 97       	sbiw	r24, 0x08	; 8
+     8b2:	31 f4       	brne	.+12     	; 0x8c0 <FDscore+0xd8>
+     8b4:	0e 94 a8 00 	call	0x150	; 0x150 <MAX7219_clear_7SEG>
+     8b8:	6f ef       	ldi	r22, 0xFF	; 255
+     8ba:	80 e0       	ldi	r24, 0x00	; 0
+     8bc:	0e 94 96 00 	call	0x12c	; 0x12c <MAX7219_set_row_7SEG>
+     8c0:	80 91 0a 01 	lds	r24, 0x010A	; 0x80010a <score>
+     8c4:	90 91 0b 01 	lds	r25, 0x010B	; 0x80010b <score+0x1>
+     8c8:	09 97       	sbiw	r24, 0x09	; 9
+     8ca:	31 f4       	brne	.+12     	; 0x8d8 <FDscore+0xf0>
+     8cc:	0e 94 a8 00 	call	0x150	; 0x150 <MAX7219_clear_7SEG>
+     8d0:	6b ef       	ldi	r22, 0xFB	; 251
+     8d2:	80 e0       	ldi	r24, 0x00	; 0
+     8d4:	0e 94 96 00 	call	0x12c	; 0x12c <MAX7219_set_row_7SEG>
+     8d8:	80 91 0a 01 	lds	r24, 0x010A	; 0x80010a <score>
+     8dc:	90 91 0b 01 	lds	r25, 0x010B	; 0x80010b <score+0x1>
+     8e0:	0a 97       	sbiw	r24, 0x0a	; 10
+     8e2:	44 f0       	brlt	.+16     	; 0x8f4 <FDscore+0x10c>
+     8e4:	0e 94 a8 00 	call	0x150	; 0x150 <MAX7219_clear_7SEG>
+     8e8:	6e ef       	ldi	r22, 0xFE	; 254
+     8ea:	80 e0       	ldi	r24, 0x00	; 0
+     8ec:	0e 94 96 00 	call	0x12c	; 0x12c <MAX7219_set_row_7SEG>
+     8f0:	0e 94 0b 03 	call	0x616	; 0x616 <yoUwin>
+     8f4:	08 95       	ret
+
+000008f6 <DispGo>:
+     8f6:	cf 93       	push	r28
+     8f8:	df 93       	push	r29
+     8fa:	ce e0       	ldi	r28, 0x0E	; 14
+     8fc:	d1 e0       	ldi	r29, 0x01	; 1
+     8fe:	88 81       	ld	r24, Y
+     900:	62 ef       	ldi	r22, 0xF2	; 242
+     902:	84 50       	subi	r24, 0x04	; 4
+     904:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     908:	88 81       	ld	r24, Y
+     90a:	62 e9       	ldi	r22, 0x92	; 146
+     90c:	83 50       	subi	r24, 0x03	; 3
+     90e:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     912:	88 81       	ld	r24, Y
+     914:	62 e9       	ldi	r22, 0x92	; 146
+     916:	82 50       	subi	r24, 0x02	; 2
+     918:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     91c:	88 81       	ld	r24, Y
+     91e:	62 e8       	ldi	r22, 0x82	; 130
+     920:	81 50       	subi	r24, 0x01	; 1
+     922:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     926:	6e ef       	ldi	r22, 0xFE	; 254
+     928:	88 81       	ld	r24, Y
+     92a:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     92e:	88 81       	ld	r24, Y
+     930:	6e ef       	ldi	r22, 0xFE	; 254
+     932:	8b 50       	subi	r24, 0x0B	; 11
+     934:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     938:	88 81       	ld	r24, Y
+     93a:	66 ec       	ldi	r22, 0xC6	; 198
+     93c:	8a 50       	subi	r24, 0x0A	; 10
+     93e:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     942:	88 81       	ld	r24, Y
+     944:	66 ec       	ldi	r22, 0xC6	; 198
+     946:	89 50       	subi	r24, 0x09	; 9
+     948:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     94c:	88 81       	ld	r24, Y
+     94e:	66 ec       	ldi	r22, 0xC6	; 198
+     950:	88 50       	subi	r24, 0x08	; 8
+     952:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     956:	88 81       	ld	r24, Y
+     958:	6e ef       	ldi	r22, 0xFE	; 254
+     95a:	87 50       	subi	r24, 0x07	; 7
+     95c:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     960:	88 81       	ld	r24, Y
+     962:	68 e1       	ldi	r22, 0x18	; 24
+     964:	8d 50       	subi	r24, 0x0D	; 13
+     966:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     96a:	88 81       	ld	r24, Y
+     96c:	68 e1       	ldi	r22, 0x18	; 24
+     96e:	8e 50       	subi	r24, 0x0E	; 14
+     970:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     974:	88 81       	ld	r24, Y
+     976:	68 e1       	ldi	r22, 0x18	; 24
+     978:	8f 50       	subi	r24, 0x0F	; 15
+     97a:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     97e:	88 81       	ld	r24, Y
+     980:	68 e1       	ldi	r22, 0x18	; 24
+     982:	80 51       	subi	r24, 0x10	; 16
+     984:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     988:	88 81       	ld	r24, Y
+     98a:	69 e9       	ldi	r22, 0x99	; 153
+     98c:	81 51       	subi	r24, 0x11	; 17
+     98e:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     992:	88 81       	ld	r24, Y
+     994:	6b ed       	ldi	r22, 0xDB	; 219
+     996:	82 51       	subi	r24, 0x12	; 18
+     998:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     99c:	88 81       	ld	r24, Y
+     99e:	6e e7       	ldi	r22, 0x7E	; 126
+     9a0:	83 51       	subi	r24, 0x13	; 19
+     9a2:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     9a6:	88 81       	ld	r24, Y
+     9a8:	6c e3       	ldi	r22, 0x3C	; 60
+     9aa:	84 51       	subi	r24, 0x14	; 20
+     9ac:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     9b0:	88 81       	ld	r24, Y
+     9b2:	68 e1       	ldi	r22, 0x18	; 24
+     9b4:	85 51       	subi	r24, 0x15	; 21
+     9b6:	0e 94 0d 08 	call	0x101a	; 0x101a <MAX7219_set_column>
+     9ba:	df 91       	pop	r29
+     9bc:	cf 91       	pop	r28
+     9be:	08 95       	ret
+
+000009c0 <ShowGO>:
+     9c0:	10 92 0f 01 	sts	0x010F, r1	; 0x80010f <px+0x1>
+     9c4:	10 92 0e 01 	sts	0x010E, r1	; 0x80010e <px>
+     9c8:	1c c0       	rjmp	.+56     	; 0xa02 <ShowGO+0x42>
+     9ca:	0e 94 7b 04 	call	0x8f6	; 0x8f6 <DispGo>
+     9ce:	2f e7       	ldi	r18, 0x7F	; 127
+     9d0:	89 ea       	ldi	r24, 0xA9	; 169
+     9d2:	93 e0       	ldi	r25, 0x03	; 3
+     9d4:	21 50       	subi	r18, 0x01	; 1
+     9d6:	80 40       	sbci	r24, 0x00	; 0
+     9d8:	90 40       	sbci	r25, 0x00	; 0
+     9da:	e1 f7       	brne	.-8      	; 0x9d4 <ShowGO+0x14>
+     9dc:	00 c0       	rjmp	.+0      	; 0x9de <ShowGO+0x1e>
+     9de:	00 00       	nop
+     9e0:	0e 94 2c 08 	call	0x1058	; 0x1058 <MAX7219_clear>
+     9e4:	8f e1       	ldi	r24, 0x1F	; 31
+     9e6:	9e e4       	ldi	r25, 0x4E	; 78
+     9e8:	01 97       	sbiw	r24, 0x01	; 1
+     9ea:	f1 f7       	brne	.-4      	; 0x9e8 <ShowGO+0x28>
+     9ec:	00 c0       	rjmp	.+0      	; 0x9ee <ShowGO+0x2e>
+     9ee:	00 00       	nop
+     9f0:	80 91 0e 01 	lds	r24, 0x010E	; 0x80010e <px>
+     9f4:	90 91 0f 01 	lds	r25, 0x010F	; 0x80010f <px+0x1>
+     9f8:	01 96       	adiw	r24, 0x01	; 1
+     9fa:	90 93 0f 01 	sts	0x010F, r25	; 0x80010f <px+0x1>
+     9fe:	80 93 0e 01 	sts	0x010E, r24	; 0x80010e <px>
+     a02:	80 91 0e 01 	lds	r24, 0x010E	; 0x80010e <px>
+     a06:	90 91 0f 01 	lds	r25, 0x010F	; 0x80010f <px+0x1>
+     a0a:	4e 97       	sbiw	r24, 0x1e	; 30
+     a0c:	f4 f2       	brlt	.-68     	; 0x9ca <ShowGO+0xa>
+     a0e:	0e 94 2c 08 	call	0x1058	; 0x1058 <MAX7219_clear>
+     a12:	10 92 0f 01 	sts	0x010F, r1	; 0x80010f <px+0x1>
+     a16:	10 92 0e 01 	sts	0x010E, r1	; 0x80010e <px>
+     a1a:	08 95       	ret
+
+00000a1c <USART_Init>:
+     a1c:	10 92 c5 00 	sts	0x00C5, r1	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7e00c5>
+     a20:	83 e3       	ldi	r24, 0x33	; 51
+     a22:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <__TEXT_REGION_LENGTH__+0x7e00c4>
+     a26:	86 e0       	ldi	r24, 0x06	; 6
+     a28:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <__TEXT_REGION_LENGTH__+0x7e00c2>
+     a2c:	88 e1       	ldi	r24, 0x18	; 24
+     a2e:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7e00c1>
+     a32:	08 95       	ret
+
+00000a34 <USART_Receive>:
+     a34:	80 91 c0 00 	lds	r24, 0x00C0	; 0x8000c0 <__TEXT_REGION_LENGTH__+0x7e00c0>
+     a38:	88 23       	and	r24, r24
+     a3a:	e4 f7       	brge	.-8      	; 0xa34 <USART_Receive>
+     a3c:	80 91 c6 00 	lds	r24, 0x00C6	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7e00c6>
+     a40:	08 95       	ret
+
+00000a42 <USART_Transmit>:
+     a42:	90 91 c0 00 	lds	r25, 0x00C0	; 0x8000c0 <__TEXT_REGION_LENGTH__+0x7e00c0>
+     a46:	95 ff       	sbrs	r25, 5
+     a48:	fc cf       	rjmp	.-8      	; 0xa42 <USART_Transmit>
+     a4a:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7e00c6>
+     a4e:	08 95       	ret
+
+00000a50 <moveup>:
+}
+
+
+
+void moveup()							// Move up function
+{
+     a50:	0f 93       	push	r16
+     a52:	1f 93       	push	r17
+     a54:	cf 93       	push	r28
+     a56:	df 93       	push	r29
+	if (Cx>XBU||Cx<XBD||Cy>YBU||Cy<YBD)  // looking for boundary
+     a58:	80 91 26 01 	lds	r24, 0x0126	; 0x800126 <Cx>
+     a5c:	90 91 27 01 	lds	r25, 0x0127	; 0x800127 <Cx+0x1>
+     a60:	20 91 04 01 	lds	r18, 0x0104	; 0x800104 <XBU>
+     a64:	30 91 05 01 	lds	r19, 0x0105	; 0x800105 <XBU+0x1>
+     a68:	28 17       	cp	r18, r24
+     a6a:	39 07       	cpc	r19, r25
+     a6c:	cc f0       	brlt	.+50     	; 0xaa0 <moveup+0x50>
+     a6e:	20 91 08 01 	lds	r18, 0x0108	; 0x800108 <XBD>
+     a72:	30 91 09 01 	lds	r19, 0x0109	; 0x800109 <XBD+0x1>
+     a76:	82 17       	cp	r24, r18
+     a78:	93 07       	cpc	r25, r19
+     a7a:	94 f0       	brlt	.+36     	; 0xaa0 <moveup+0x50>
+     a7c:	60 91 24 01 	lds	r22, 0x0124	; 0x800124 <Cy>
+     a80:	70 91 25 01 	lds	r23, 0x0125	; 0x800125 <Cy+0x1>
+     a84:	20 91 02 01 	lds	r18, 0x0102	; 0x800102 <YBU>
+     a88:	30 91 03 01 	lds	r19, 0x0103	; 0x800103 <YBU+0x1>
+     a8c:	26 17       	cp	r18, r22
+     a8e:	37 07       	cpc	r19, r23
+     a90:	3c f0       	brlt	.+14     	; 0xaa0 <moveup+0x50>
+     a92:	20 91 06 01 	lds	r18, 0x0106	; 0x800106 <__data_end>
+     a96:	30 91 07 01 	lds	r19, 0x0107	; 0x800107 <__data_end+0x1>
+     a9a:	62 17       	cp	r22, r18
+     a9c:	73 07       	cpc	r23, r19
+     a9e:	1c f4       	brge	.+6      	; 0xaa6 <moveup+0x56>
+	{
+		gameOver();  // stop game
+     aa0:	0e 94 c1 00 	call	0x182	; 0x182 <gameOver>
+     aa4:	26 c0       	rjmp	.+76     	; 0xaf2 <moveup+0xa2>
+	}
+	else
+	{ 
+		MAX7219_set_pixel(Cx,Cy,true);    // on the position dot
+     aa6:	41 e0       	ldi	r20, 0x01	; 1
+     aa8:	0e 94 dc 07 	call	0xfb8	; 0xfb8 <MAX7219_set_pixel>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+     aac:	2f ef       	ldi	r18, 0xFF	; 255
+     aae:	82 e5       	ldi	r24, 0x52	; 82
+     ab0:	97 e0       	ldi	r25, 0x07	; 7
+     ab2:	21 50       	subi	r18, 0x01	; 1
+     ab4:	80 40       	sbci	r24, 0x00	; 0
+     ab6:	90 40       	sbci	r25, 0x00	; 0
+     ab8:	e1 f7       	brne	.-8      	; 0xab2 <moveup+0x62>
+     aba:	00 c0       	rjmp	.+0      	; 0xabc <moveup+0x6c>
+     abc:	00 00       	nop
+		_delay_ms(300);                   // game speeds
+		MAX7219_set_pixel(Cx,Cy,false);   // off
+     abe:	c4 e2       	ldi	r28, 0x24	; 36
+     ac0:	d1 e0       	ldi	r29, 0x01	; 1
+     ac2:	06 e2       	ldi	r16, 0x26	; 38
+     ac4:	11 e0       	ldi	r17, 0x01	; 1
+     ac6:	40 e0       	ldi	r20, 0x00	; 0
+     ac8:	68 81       	ld	r22, Y
+     aca:	f8 01       	movw	r30, r16
+     acc:	80 81       	ld	r24, Z
+     ace:	0e 94 dc 07 	call	0xfb8	; 0xfb8 <MAX7219_set_pixel>
+		MAX7219_set_pixel(Cx-1,Cy,true);  // on next position
+     ad2:	f8 01       	movw	r30, r16
+     ad4:	80 81       	ld	r24, Z
+     ad6:	41 e0       	ldi	r20, 0x01	; 1
+     ad8:	68 81       	ld	r22, Y
+     ada:	81 50       	subi	r24, 0x01	; 1
+     adc:	0e 94 dc 07 	call	0xfb8	; 0xfb8 <MAX7219_set_pixel>
+		Cx=Cx-1;                          // update current x value
+     ae0:	80 91 26 01 	lds	r24, 0x0126	; 0x800126 <Cx>
+     ae4:	90 91 27 01 	lds	r25, 0x0127	; 0x800127 <Cx+0x1>
+     ae8:	01 97       	sbiw	r24, 0x01	; 1
+     aea:	90 93 27 01 	sts	0x0127, r25	; 0x800127 <Cx+0x1>
+     aee:	80 93 26 01 	sts	0x0126, r24	; 0x800126 <Cx>
+		Cy=Cy;                            // update current y value
+		
+		/* other move methods are also same type. So, not going to comment them*/
+		
+	}
+}
+     af2:	df 91       	pop	r29
+     af4:	cf 91       	pop	r28
+     af6:	1f 91       	pop	r17
+     af8:	0f 91       	pop	r16
+     afa:	08 95       	ret
+
+00000afc <movedown>:
+
+void movedown()							// Move down function
+{
+     afc:	0f 93       	push	r16
+     afe:	1f 93       	push	r17
+     b00:	cf 93       	push	r28
+     b02:	df 93       	push	r29
+	if (Cx>XBU||Cx<XBD||Cy>YBU||Cy<YBD)
+     b04:	80 91 26 01 	lds	r24, 0x0126	; 0x800126 <Cx>
+     b08:	90 91 27 01 	lds	r25, 0x0127	; 0x800127 <Cx+0x1>
+     b0c:	20 91 04 01 	lds	r18, 0x0104	; 0x800104 <XBU>
+     b10:	30 91 05 01 	lds	r19, 0x0105	; 0x800105 <XBU+0x1>
+     b14:	28 17       	cp	r18, r24
+     b16:	39 07       	cpc	r19, r25
+     b18:	cc f0       	brlt	.+50     	; 0xb4c <movedown+0x50>
+     b1a:	20 91 08 01 	lds	r18, 0x0108	; 0x800108 <XBD>
+     b1e:	30 91 09 01 	lds	r19, 0x0109	; 0x800109 <XBD+0x1>
+     b22:	82 17       	cp	r24, r18
+     b24:	93 07       	cpc	r25, r19
+     b26:	94 f0       	brlt	.+36     	; 0xb4c <movedown+0x50>
+     b28:	60 91 24 01 	lds	r22, 0x0124	; 0x800124 <Cy>
+     b2c:	70 91 25 01 	lds	r23, 0x0125	; 0x800125 <Cy+0x1>
+     b30:	20 91 02 01 	lds	r18, 0x0102	; 0x800102 <YBU>
+     b34:	30 91 03 01 	lds	r19, 0x0103	; 0x800103 <YBU+0x1>
+     b38:	26 17       	cp	r18, r22
+     b3a:	37 07       	cpc	r19, r23
+     b3c:	3c f0       	brlt	.+14     	; 0xb4c <movedown+0x50>
+     b3e:	20 91 06 01 	lds	r18, 0x0106	; 0x800106 <__data_end>
+     b42:	30 91 07 01 	lds	r19, 0x0107	; 0x800107 <__data_end+0x1>
+     b46:	62 17       	cp	r22, r18
+     b48:	73 07       	cpc	r23, r19
+     b4a:	1c f4       	brge	.+6      	; 0xb52 <movedown+0x56>
+	{
+		gameOver();
+     b4c:	0e 94 c1 00 	call	0x182	; 0x182 <gameOver>
+     b50:	26 c0       	rjmp	.+76     	; 0xb9e <movedown+0xa2>
+	}
+	else
+	{
+		MAX7219_set_pixel(Cx,Cy,true);
+     b52:	41 e0       	ldi	r20, 0x01	; 1
+     b54:	0e 94 dc 07 	call	0xfb8	; 0xfb8 <MAX7219_set_pixel>
+     b58:	2f ef       	ldi	r18, 0xFF	; 255
+     b5a:	82 e5       	ldi	r24, 0x52	; 82
+     b5c:	97 e0       	ldi	r25, 0x07	; 7
+     b5e:	21 50       	subi	r18, 0x01	; 1
+     b60:	80 40       	sbci	r24, 0x00	; 0
+     b62:	90 40       	sbci	r25, 0x00	; 0
+     b64:	e1 f7       	brne	.-8      	; 0xb5e <movedown+0x62>
+     b66:	00 c0       	rjmp	.+0      	; 0xb68 <movedown+0x6c>
+     b68:	00 00       	nop
+		_delay_ms(300);
+		MAX7219_set_pixel(Cx,Cy,false);
+     b6a:	c4 e2       	ldi	r28, 0x24	; 36
+     b6c:	d1 e0       	ldi	r29, 0x01	; 1
+     b6e:	06 e2       	ldi	r16, 0x26	; 38
+     b70:	11 e0       	ldi	r17, 0x01	; 1
+     b72:	40 e0       	ldi	r20, 0x00	; 0
+     b74:	68 81       	ld	r22, Y
+     b76:	f8 01       	movw	r30, r16
+     b78:	80 81       	ld	r24, Z
+     b7a:	0e 94 dc 07 	call	0xfb8	; 0xfb8 <MAX7219_set_pixel>
+		MAX7219_set_pixel(Cx+1,Cy,true);
+     b7e:	f8 01       	movw	r30, r16
+     b80:	80 81       	ld	r24, Z
+     b82:	41 e0       	ldi	r20, 0x01	; 1
+     b84:	68 81       	ld	r22, Y
+     b86:	8f 5f       	subi	r24, 0xFF	; 255
+     b88:	0e 94 dc 07 	call	0xfb8	; 0xfb8 <MAX7219_set_pixel>
+		Cx=Cx+1;
+     b8c:	80 91 26 01 	lds	r24, 0x0126	; 0x800126 <Cx>
+     b90:	90 91 27 01 	lds	r25, 0x0127	; 0x800127 <Cx+0x1>
+     b94:	01 96       	adiw	r24, 0x01	; 1
+     b96:	90 93 27 01 	sts	0x0127, r25	; 0x800127 <Cx+0x1>
+     b9a:	80 93 26 01 	sts	0x0126, r24	; 0x800126 <Cx>
+		Cy=Cy;
+	}
+}
+     b9e:	df 91       	pop	r29
+     ba0:	cf 91       	pop	r28
+     ba2:	1f 91       	pop	r17
+     ba4:	0f 91       	pop	r16
+     ba6:	08 95       	ret
+
+00000ba8 <moveright>:
+
+void moveright()						// Move right function
+{
+     ba8:	0f 93       	push	r16
+     baa:	1f 93       	push	r17
+     bac:	cf 93       	push	r28
+     bae:	df 93       	push	r29
+	if (Cx>XBU||Cx<XBD||Cy>YBU||Cy<YBD)
+     bb0:	80 91 26 01 	lds	r24, 0x0126	; 0x800126 <Cx>
+     bb4:	90 91 27 01 	lds	r25, 0x0127	; 0x800127 <Cx+0x1>
+     bb8:	20 91 04 01 	lds	r18, 0x0104	; 0x800104 <XBU>
+     bbc:	30 91 05 01 	lds	r19, 0x0105	; 0x800105 <XBU+0x1>
+     bc0:	28 17       	cp	r18, r24
+     bc2:	39 07       	cpc	r19, r25
+     bc4:	cc f0       	brlt	.+50     	; 0xbf8 <moveright+0x50>
+     bc6:	20 91 08 01 	lds	r18, 0x0108	; 0x800108 <XBD>
+     bca:	30 91 09 01 	lds	r19, 0x0109	; 0x800109 <XBD+0x1>
+     bce:	82 17       	cp	r24, r18
+     bd0:	93 07       	cpc	r25, r19
+     bd2:	94 f0       	brlt	.+36     	; 0xbf8 <moveright+0x50>
+     bd4:	60 91 24 01 	lds	r22, 0x0124	; 0x800124 <Cy>
+     bd8:	70 91 25 01 	lds	r23, 0x0125	; 0x800125 <Cy+0x1>
+     bdc:	20 91 02 01 	lds	r18, 0x0102	; 0x800102 <YBU>
+     be0:	30 91 03 01 	lds	r19, 0x0103	; 0x800103 <YBU+0x1>
+     be4:	26 17       	cp	r18, r22
+     be6:	37 07       	cpc	r19, r23
+     be8:	3c f0       	brlt	.+14     	; 0xbf8 <moveright+0x50>
+     bea:	20 91 06 01 	lds	r18, 0x0106	; 0x800106 <__data_end>
+     bee:	30 91 07 01 	lds	r19, 0x0107	; 0x800107 <__data_end+0x1>
+     bf2:	62 17       	cp	r22, r18
+     bf4:	73 07       	cpc	r23, r19
+     bf6:	1c f4       	brge	.+6      	; 0xbfe <moveright+0x56>
+	{
+		gameOver();
+     bf8:	0e 94 c1 00 	call	0x182	; 0x182 <gameOver>
+     bfc:	26 c0       	rjmp	.+76     	; 0xc4a <moveright+0xa2>
+	}
+	else
+	{
+		MAX7219_set_pixel(Cx,Cy,true);
+     bfe:	41 e0       	ldi	r20, 0x01	; 1
+     c00:	0e 94 dc 07 	call	0xfb8	; 0xfb8 <MAX7219_set_pixel>
+     c04:	2f ef       	ldi	r18, 0xFF	; 255
+     c06:	82 e5       	ldi	r24, 0x52	; 82
+     c08:	97 e0       	ldi	r25, 0x07	; 7
+     c0a:	21 50       	subi	r18, 0x01	; 1
+     c0c:	80 40       	sbci	r24, 0x00	; 0
+     c0e:	90 40       	sbci	r25, 0x00	; 0
+     c10:	e1 f7       	brne	.-8      	; 0xc0a <moveright+0x62>
+     c12:	00 c0       	rjmp	.+0      	; 0xc14 <moveright+0x6c>
+     c14:	00 00       	nop
+		_delay_ms(300);
+		MAX7219_set_pixel(Cx,Cy,false);
+     c16:	04 e2       	ldi	r16, 0x24	; 36
+     c18:	11 e0       	ldi	r17, 0x01	; 1
+     c1a:	c6 e2       	ldi	r28, 0x26	; 38
+     c1c:	d1 e0       	ldi	r29, 0x01	; 1
+     c1e:	40 e0       	ldi	r20, 0x00	; 0
+     c20:	f8 01       	movw	r30, r16
+     c22:	60 81       	ld	r22, Z
+     c24:	88 81       	ld	r24, Y
+     c26:	0e 94 dc 07 	call	0xfb8	; 0xfb8 <MAX7219_set_pixel>
+		MAX7219_set_pixel(Cx,Cy+1,true);
+     c2a:	f8 01       	movw	r30, r16
+     c2c:	60 81       	ld	r22, Z
+     c2e:	6f 5f       	subi	r22, 0xFF	; 255
+     c30:	41 e0       	ldi	r20, 0x01	; 1
+     c32:	88 81       	ld	r24, Y
+     c34:	0e 94 dc 07 	call	0xfb8	; 0xfb8 <MAX7219_set_pixel>
+		Cx=Cx;
+		Cy=Cy+1;
+     c38:	80 91 24 01 	lds	r24, 0x0124	; 0x800124 <Cy>
+     c3c:	90 91 25 01 	lds	r25, 0x0125	; 0x800125 <Cy+0x1>
+     c40:	01 96       	adiw	r24, 0x01	; 1
+     c42:	90 93 25 01 	sts	0x0125, r25	; 0x800125 <Cy+0x1>
+     c46:	80 93 24 01 	sts	0x0124, r24	; 0x800124 <Cy>
+	}
+	
+}
+     c4a:	df 91       	pop	r29
+     c4c:	cf 91       	pop	r28
+     c4e:	1f 91       	pop	r17
+     c50:	0f 91       	pop	r16
+     c52:	08 95       	ret
+
+00000c54 <moveleft>:
+
+void moveleft()                         // Move left function
+{
+     c54:	0f 93       	push	r16
+     c56:	1f 93       	push	r17
+     c58:	cf 93       	push	r28
+     c5a:	df 93       	push	r29
+	if (Cx>XBU||Cx<XBD||Cy>YBU||Cy<YBD)
+     c5c:	80 91 26 01 	lds	r24, 0x0126	; 0x800126 <Cx>
+     c60:	90 91 27 01 	lds	r25, 0x0127	; 0x800127 <Cx+0x1>
+     c64:	20 91 04 01 	lds	r18, 0x0104	; 0x800104 <XBU>
+     c68:	30 91 05 01 	lds	r19, 0x0105	; 0x800105 <XBU+0x1>
+     c6c:	28 17       	cp	r18, r24
+     c6e:	39 07       	cpc	r19, r25
+     c70:	cc f0       	brlt	.+50     	; 0xca4 <moveleft+0x50>
+     c72:	20 91 08 01 	lds	r18, 0x0108	; 0x800108 <XBD>
+     c76:	30 91 09 01 	lds	r19, 0x0109	; 0x800109 <XBD+0x1>
+     c7a:	82 17       	cp	r24, r18
+     c7c:	93 07       	cpc	r25, r19
+     c7e:	94 f0       	brlt	.+36     	; 0xca4 <moveleft+0x50>
+     c80:	60 91 24 01 	lds	r22, 0x0124	; 0x800124 <Cy>
+     c84:	70 91 25 01 	lds	r23, 0x0125	; 0x800125 <Cy+0x1>
+     c88:	20 91 02 01 	lds	r18, 0x0102	; 0x800102 <YBU>
+     c8c:	30 91 03 01 	lds	r19, 0x0103	; 0x800103 <YBU+0x1>
+     c90:	26 17       	cp	r18, r22
+     c92:	37 07       	cpc	r19, r23
+     c94:	3c f0       	brlt	.+14     	; 0xca4 <moveleft+0x50>
+     c96:	20 91 06 01 	lds	r18, 0x0106	; 0x800106 <__data_end>
+     c9a:	30 91 07 01 	lds	r19, 0x0107	; 0x800107 <__data_end+0x1>
+     c9e:	62 17       	cp	r22, r18
+     ca0:	73 07       	cpc	r23, r19
+     ca2:	1c f4       	brge	.+6      	; 0xcaa <moveleft+0x56>
+	{
+		gameOver();
+     ca4:	0e 94 c1 00 	call	0x182	; 0x182 <gameOver>
+     ca8:	26 c0       	rjmp	.+76     	; 0xcf6 <moveleft+0xa2>
+		
+	}
+	else
+	{
+		MAX7219_set_pixel(Cx,Cy,true);
+     caa:	41 e0       	ldi	r20, 0x01	; 1
+     cac:	0e 94 dc 07 	call	0xfb8	; 0xfb8 <MAX7219_set_pixel>
+     cb0:	2f ef       	ldi	r18, 0xFF	; 255
+     cb2:	82 e5       	ldi	r24, 0x52	; 82
+     cb4:	97 e0       	ldi	r25, 0x07	; 7
+     cb6:	21 50       	subi	r18, 0x01	; 1
+     cb8:	80 40       	sbci	r24, 0x00	; 0
+     cba:	90 40       	sbci	r25, 0x00	; 0
+     cbc:	e1 f7       	brne	.-8      	; 0xcb6 <moveleft+0x62>
+     cbe:	00 c0       	rjmp	.+0      	; 0xcc0 <moveleft+0x6c>
+     cc0:	00 00       	nop
+		_delay_ms(300);
+		MAX7219_set_pixel(Cx,Cy,false);
+     cc2:	04 e2       	ldi	r16, 0x24	; 36
+     cc4:	11 e0       	ldi	r17, 0x01	; 1
+     cc6:	c6 e2       	ldi	r28, 0x26	; 38
+     cc8:	d1 e0       	ldi	r29, 0x01	; 1
+     cca:	40 e0       	ldi	r20, 0x00	; 0
+     ccc:	f8 01       	movw	r30, r16
+     cce:	60 81       	ld	r22, Z
+     cd0:	88 81       	ld	r24, Y
+     cd2:	0e 94 dc 07 	call	0xfb8	; 0xfb8 <MAX7219_set_pixel>
+		MAX7219_set_pixel(Cx,Cy-1,true);
+     cd6:	f8 01       	movw	r30, r16
+     cd8:	60 81       	ld	r22, Z
+     cda:	61 50       	subi	r22, 0x01	; 1
+     cdc:	41 e0       	ldi	r20, 0x01	; 1
+     cde:	88 81       	ld	r24, Y
+     ce0:	0e 94 dc 07 	call	0xfb8	; 0xfb8 <MAX7219_set_pixel>
+		Cx=Cx;
+		Cy=Cy-1;
+     ce4:	80 91 24 01 	lds	r24, 0x0124	; 0x800124 <Cy>
+     ce8:	90 91 25 01 	lds	r25, 0x0125	; 0x800125 <Cy+0x1>
+     cec:	01 97       	sbiw	r24, 0x01	; 1
+     cee:	90 93 25 01 	sts	0x0125, r25	; 0x800125 <Cy+0x1>
+     cf2:	80 93 24 01 	sts	0x0124, r24	; 0x800124 <Cy>
+	}
+}
+     cf6:	df 91       	pop	r29
+     cf8:	cf 91       	pop	r28
+     cfa:	1f 91       	pop	r17
+     cfc:	0f 91       	pop	r16
+     cfe:	08 95       	ret
+
+00000d00 <RNG>:
+
+int RNG()
+{
+	char rec;                         // set-up a char variable to receive data
+	int rng;                          // set-up variable to convert 'char' to 'int'
+	USART_Transmit('S');              // send the 'char "S" '
+     d00:	83 e5       	ldi	r24, 0x53	; 83
+     d02:	0e 94 21 05 	call	0xa42	; 0xa42 <USART_Transmit>
+	rec = USART_Receive();            // receive the 'char' number
+     d06:	0e 94 1a 05 	call	0xa34	; 0xa34 <USART_Receive>
+	
+	/* This "if" statement is used to convert char to int for set-up positions */
+	
+	if     (rec == '1'){rng = 0;}
+     d0a:	81 33       	cpi	r24, 0x31	; 49
+     d0c:	79 f0       	breq	.+30     	; 0xd2c <RNG+0x2c>
+	else if(rec == '2'){rng = 1;}
+     d0e:	82 33       	cpi	r24, 0x32	; 50
+     d10:	81 f0       	breq	.+32     	; 0xd32 <RNG+0x32>
+	else if(rec == '3'){rng = 2;}
+     d12:	83 33       	cpi	r24, 0x33	; 51
+     d14:	89 f0       	breq	.+34     	; 0xd38 <RNG+0x38>
+	else if(rec == '4'){rng = 3;}
+     d16:	84 33       	cpi	r24, 0x34	; 52
+     d18:	91 f0       	breq	.+36     	; 0xd3e <RNG+0x3e>
+	else if(rec == '5'){rng = 4;}
+     d1a:	85 33       	cpi	r24, 0x35	; 53
+     d1c:	99 f0       	breq	.+38     	; 0xd44 <RNG+0x44>
+	else if(rec == '6'){rng = 5;}
+     d1e:	86 33       	cpi	r24, 0x36	; 54
+     d20:	a1 f0       	breq	.+40     	; 0xd4a <RNG+0x4a>
+	else if(rec == '7'){rng = 6;}
+     d22:	87 33       	cpi	r24, 0x37	; 55
+     d24:	a9 f4       	brne	.+42     	; 0xd50 <RNG+0x50>
+     d26:	86 e0       	ldi	r24, 0x06	; 6
+     d28:	90 e0       	ldi	r25, 0x00	; 0
+     d2a:	08 95       	ret
+	USART_Transmit('S');              // send the 'char "S" '
+	rec = USART_Receive();            // receive the 'char' number
+	
+	/* This "if" statement is used to convert char to int for set-up positions */
+	
+	if     (rec == '1'){rng = 0;}
+     d2c:	80 e0       	ldi	r24, 0x00	; 0
+     d2e:	90 e0       	ldi	r25, 0x00	; 0
+     d30:	08 95       	ret
+	else if(rec == '2'){rng = 1;}
+     d32:	81 e0       	ldi	r24, 0x01	; 1
+     d34:	90 e0       	ldi	r25, 0x00	; 0
+     d36:	08 95       	ret
+	else if(rec == '3'){rng = 2;}
+     d38:	82 e0       	ldi	r24, 0x02	; 2
+     d3a:	90 e0       	ldi	r25, 0x00	; 0
+     d3c:	08 95       	ret
+	else if(rec == '4'){rng = 3;}
+     d3e:	83 e0       	ldi	r24, 0x03	; 3
+     d40:	90 e0       	ldi	r25, 0x00	; 0
+     d42:	08 95       	ret
+	else if(rec == '5'){rng = 4;}
+     d44:	84 e0       	ldi	r24, 0x04	; 4
+     d46:	90 e0       	ldi	r25, 0x00	; 0
+     d48:	08 95       	ret
+	else if(rec == '6'){rng = 5;}
+     d4a:	85 e0       	ldi	r24, 0x05	; 5
+     d4c:	90 e0       	ldi	r25, 0x00	; 0
+     d4e:	08 95       	ret
+	else if(rec == '7'){rng = 6;}
+	else               {rng = 7;}
+     d50:	87 e0       	ldi	r24, 0x07	; 7
+     d52:	90 e0       	ldi	r25, 0x00	; 0
+	return(rng);           
+}
+     d54:	08 95       	ret
+
+00000d56 <foodSpawn>:
+
+void foodSpawn()         // This is the method that used to get food positions
+{
+     d56:	1f 93       	push	r17
+     d58:	cf 93       	push	r28
+     d5a:	df 93       	push	r29
+	int x = RNG();       // getting value to x position
+     d5c:	0e 94 80 06 	call	0xd00	; 0xd00 <RNG>
+     d60:	18 2f       	mov	r17, r24
+	foodLoc[0]=x;        // assign value to array for comparing 
+     d62:	c8 e2       	ldi	r28, 0x28	; 40
+     d64:	d1 e0       	ldi	r29, 0x01	; 1
+     d66:	88 83       	st	Y, r24
+     d68:	99 83       	std	Y+1, r25	; 0x01
+	int y = RNG();       // getting value to y position
+     d6a:	0e 94 80 06 	call	0xd00	; 0xd00 <RNG>
+	foodLoc[1]=y;        // assign value to array for comparing 
+     d6e:	8a 83       	std	Y+2, r24	; 0x02
+     d70:	9b 83       	std	Y+3, r25	; 0x03
+	
+	MAX7219_set_pixel(y,x,true);  // set-up the food dot
+     d72:	41 e0       	ldi	r20, 0x01	; 1
+     d74:	61 2f       	mov	r22, r17
+     d76:	0e 94 dc 07 	call	0xfb8	; 0xfb8 <MAX7219_set_pixel>
+}
+     d7a:	df 91       	pop	r29
+     d7c:	cf 91       	pop	r28
+     d7e:	1f 91       	pop	r17
+     d80:	08 95       	ret
+
+00000d82 <isFoodEaten>:
+
+void isFoodEaten()
+{
+	tmpSnake [0] = Cx;   // temperate X position of the snake
+     d82:	80 91 26 01 	lds	r24, 0x0126	; 0x800126 <Cx>
+     d86:	90 91 27 01 	lds	r25, 0x0127	; 0x800127 <Cx+0x1>
+     d8a:	e0 e2       	ldi	r30, 0x20	; 32
+     d8c:	f1 e0       	ldi	r31, 0x01	; 1
+     d8e:	91 83       	std	Z+1, r25	; 0x01
+     d90:	80 83       	st	Z, r24
+	tmpSnake [1] = Cy;   // temperate Y position of the snake
+     d92:	20 91 24 01 	lds	r18, 0x0124	; 0x800124 <Cy>
+     d96:	30 91 25 01 	lds	r19, 0x0125	; 0x800125 <Cy+0x1>
+     d9a:	33 83       	std	Z+3, r19	; 0x03
+     d9c:	22 83       	std	Z+2, r18	; 0x02
+	
+	if(tmpSnake[0] == foodLoc[1] && tmpSnake[1] == foodLoc[0])  // finding foods are eaten.
+     d9e:	40 91 2a 01 	lds	r20, 0x012A	; 0x80012a <foodLoc+0x2>
+     da2:	50 91 2b 01 	lds	r21, 0x012B	; 0x80012b <foodLoc+0x3>
+     da6:	84 17       	cp	r24, r20
+     da8:	95 07       	cpc	r25, r21
+     daa:	a1 f4       	brne	.+40     	; 0xdd4 <isFoodEaten+0x52>
+     dac:	80 91 28 01 	lds	r24, 0x0128	; 0x800128 <foodLoc>
+     db0:	90 91 29 01 	lds	r25, 0x0129	; 0x800129 <foodLoc+0x1>
+     db4:	28 17       	cp	r18, r24
+     db6:	39 07       	cpc	r19, r25
+     db8:	69 f4       	brne	.+26     	; 0xdd4 <isFoodEaten+0x52>
+	{
+		foodSpawn();        //  Getting new food position
+     dba:	0e 94 ab 06 	call	0xd56	; 0xd56 <foodSpawn>
+		score = score+1;    //  Increase scores
+     dbe:	80 91 0a 01 	lds	r24, 0x010A	; 0x80010a <score>
+     dc2:	90 91 0b 01 	lds	r25, 0x010B	; 0x80010b <score+0x1>
+     dc6:	01 96       	adiw	r24, 0x01	; 1
+     dc8:	90 93 0b 01 	sts	0x010B, r25	; 0x80010b <score+0x1>
+     dcc:	80 93 0a 01 	sts	0x010A, r24	; 0x80010a <score>
+		FDscore();          //  starting Score displaying function
+     dd0:	0e 94 f4 03 	call	0x7e8	; 0x7e8 <FDscore>
+     dd4:	08 95       	ret
+
+00000dd6 <move>:
+	}
+	else{}
+}
+
+void move(int dir)                      // Main function that used to directing the movements
+{
+     dd6:	cf 93       	push	r28
+     dd8:	df 93       	push	r29
+     dda:	ec 01       	movw	r28, r24
+	if (dir==0) // up
+     ddc:	89 2b       	or	r24, r25
+     dde:	11 f4       	brne	.+4      	; 0xde4 <move+0xe>
+	{
+		moveup();
+     de0:	0e 94 28 05 	call	0xa50	; 0xa50 <moveup>
+	}
+	
+	if (dir==1) // down
+     de4:	c1 30       	cpi	r28, 0x01	; 1
+     de6:	d1 05       	cpc	r29, r1
+     de8:	11 f4       	brne	.+4      	; 0xdee <move+0x18>
+	{
+		movedown();
+     dea:	0e 94 7e 05 	call	0xafc	; 0xafc <movedown>
+	}
+	
+	if (dir==2) // right
+     dee:	c2 30       	cpi	r28, 0x02	; 2
+     df0:	d1 05       	cpc	r29, r1
+     df2:	11 f4       	brne	.+4      	; 0xdf8 <move+0x22>
+	{
+		moveright();
+     df4:	0e 94 d4 05 	call	0xba8	; 0xba8 <moveright>
+	}
+	
+	if (dir==3) // left
+     df8:	23 97       	sbiw	r28, 0x03	; 3
+     dfa:	11 f4       	brne	.+4      	; 0xe00 <move+0x2a>
+	{
+		moveleft();
+     dfc:	0e 94 2a 06 	call	0xc54	; 0xc54 <moveleft>
+	}
+     e00:	df 91       	pop	r29
+     e02:	cf 91       	pop	r28
+     e04:	08 95       	ret
+
+00000e06 <main>:
+#define SWITCH3_PRESSED !(PINC &(1<<PINC2))    // Right button
+#define SWITCH4_PRESSED !(PINC &(1<<PINC3))    // Left button
+
+int main(void)
+{
+	Cx = 4;                        // Starting X axis point of the snake
+     e06:	84 e0       	ldi	r24, 0x04	; 4
+     e08:	90 e0       	ldi	r25, 0x00	; 0
+     e0a:	90 93 27 01 	sts	0x0127, r25	; 0x800127 <Cx+0x1>
+     e0e:	80 93 26 01 	sts	0x0126, r24	; 0x800126 <Cx>
+	Cy = 3;                        // Starting Y axis point of the snake
+     e12:	83 e0       	ldi	r24, 0x03	; 3
+     e14:	90 e0       	ldi	r25, 0x00	; 0
+     e16:	90 93 25 01 	sts	0x0125, r25	; 0x800125 <Cy+0x1>
+     e1a:	80 93 24 01 	sts	0x0124, r24	; 0x800124 <Cy>
+	
+	DDRD |=(1<<DDD6);              //  LED that used to Check the system
+     e1e:	8a b1       	in	r24, 0x0a	; 10
+     e20:	80 64       	ori	r24, 0x40	; 64
+     e22:	8a b9       	out	0x0a, r24	; 10
+	
+	DDRC &= ~(1<<DDC0);            // Up button
+     e24:	87 b1       	in	r24, 0x07	; 7
+     e26:	8e 7f       	andi	r24, 0xFE	; 254
+     e28:	87 b9       	out	0x07, r24	; 7
+	DDRC &= ~(1<<DDC1);            // Down button
+     e2a:	87 b1       	in	r24, 0x07	; 7
+     e2c:	8d 7f       	andi	r24, 0xFD	; 253
+     e2e:	87 b9       	out	0x07, r24	; 7
+	DDRC &= ~(1<<DDC2);            // Right button
+     e30:	87 b1       	in	r24, 0x07	; 7
+     e32:	8b 7f       	andi	r24, 0xFB	; 251
+     e34:	87 b9       	out	0x07, r24	; 7
+	DDRC &= ~(1<<DDC3);            // Left button
+     e36:	87 b1       	in	r24, 0x07	; 7
+     e38:	87 7f       	andi	r24, 0xF7	; 247
+     e3a:	87 b9       	out	0x07, r24	; 7
+	
+	
+	PCICR |= (1 << PCIE0);         // Checking button interrupts are happenings
+     e3c:	e8 e6       	ldi	r30, 0x68	; 104
+     e3e:	f0 e0       	ldi	r31, 0x00	; 0
+     e40:	80 81       	ld	r24, Z
+     e42:	81 60       	ori	r24, 0x01	; 1
+     e44:	80 83       	st	Z, r24
+	
+	/* ......................Four buttons interrupts..........................*/
+	PCMSK0 |= (1 << PCINT8);
+     e46:	eb e6       	ldi	r30, 0x6B	; 107
+     e48:	f0 e0       	ldi	r31, 0x00	; 0
+     e4a:	80 81       	ld	r24, Z
+     e4c:	81 60       	ori	r24, 0x01	; 1
+     e4e:	80 83       	st	Z, r24
+	PCMSK0 |= (1 << PCINT9);
+     e50:	80 81       	ld	r24, Z
+     e52:	82 60       	ori	r24, 0x02	; 2
+     e54:	80 83       	st	Z, r24
+	PCMSK0 |= (1 << PCINT10);
+     e56:	80 81       	ld	r24, Z
+     e58:	84 60       	ori	r24, 0x04	; 4
+     e5a:	80 83       	st	Z, r24
+	PCMSK0 |= (1 << PCINT11);
+     e5c:	80 81       	ld	r24, Z
+     e5e:	88 60       	ori	r24, 0x08	; 8
+     e60:	80 83       	st	Z, r24
+	
+	USART_Init();                        // Connection library starts
+     e62:	0e 94 0e 05 	call	0xa1c	; 0xa1c <USART_Init>
+    MAX7219_init();                      // LED matrix library starts
+     e66:	0e 94 c4 07 	call	0xf88	; 0xf88 <MAX7219_init>
+	MAX7219_init_7SEG();                 // 7 segment library starts
+     e6a:	0e 94 7e 00 	call	0xfc	; 0xfc <MAX7219_init_7SEG>
+	MAX7219_set_intensity_7SEG(10);      // setting 7 segment display intensity
+     e6e:	8a e0       	ldi	r24, 0x0A	; 10
+     e70:	0e 94 a1 00 	call	0x142	; 0x142 <MAX7219_set_intensity_7SEG>
+	
+	FDscore();                       // Starting the scoring function to show the numbers.
+     e74:	0e 94 f4 03 	call	0x7e8	; 0x7e8 <FDscore>
+	
+	PORTD |=(1<<PORTD6);             // Checking LED ON
+     e78:	8b b1       	in	r24, 0x0b	; 11
+     e7a:	80 64       	ori	r24, 0x40	; 64
+     e7c:	8b b9       	out	0x0b, r24	; 11
+     e7e:	2f ef       	ldi	r18, 0xFF	; 255
+     e80:	82 e5       	ldi	r24, 0x52	; 82
+     e82:	97 e0       	ldi	r25, 0x07	; 7
+     e84:	21 50       	subi	r18, 0x01	; 1
+     e86:	80 40       	sbci	r24, 0x00	; 0
+     e88:	90 40       	sbci	r25, 0x00	; 0
+     e8a:	e1 f7       	brne	.-8      	; 0xe84 <main+0x7e>
+     e8c:	00 c0       	rjmp	.+0      	; 0xe8e <main+0x88>
+     e8e:	00 00       	nop
+	_delay_ms(300);
+	
+	snake();                         // Show game name array
+     e90:	0e 94 f2 01 	call	0x3e4	; 0x3e4 <snake>
+	ShowGO();                        // Set-up Go array
+     e94:	0e 94 e0 04 	call	0x9c0	; 0x9c0 <ShowGO>
+	PORTD &= (~(1<<PORTD6));        // Checking LED OFF
+     e98:	8b b1       	in	r24, 0x0b	; 11
+     e9a:	8f 7b       	andi	r24, 0xBF	; 191
+     e9c:	8b b9       	out	0x0b, r24	; 11
+     e9e:	2f ef       	ldi	r18, 0xFF	; 255
+     ea0:	82 e5       	ldi	r24, 0x52	; 82
+     ea2:	97 e0       	ldi	r25, 0x07	; 7
+     ea4:	21 50       	subi	r18, 0x01	; 1
+     ea6:	80 40       	sbci	r24, 0x00	; 0
+     ea8:	90 40       	sbci	r25, 0x00	; 0
+     eaa:	e1 f7       	brne	.-8      	; 0xea4 <main+0x9e>
+     eac:	00 c0       	rjmp	.+0      	; 0xeae <main+0xa8>
+     eae:	00 00       	nop
+	_delay_ms(300);
+	
+	foodSpawn();                    // Adding food for first-time
+     eb0:	0e 94 ab 06 	call	0xd56	; 0xd56 <foodSpawn>
+	sei();	                        // For Interrupts....
+     eb4:	78 94       	sei
+	    
+	while (END != 1)                // Continue the system
+     eb6:	08 c0       	rjmp	.+16     	; 0xec8 <main+0xc2>
+    {   
+		move(dir);                 // Main snake movement function  		
+     eb8:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__data_start>
+     ebc:	90 91 01 01 	lds	r25, 0x0101	; 0x800101 <__data_start+0x1>
+     ec0:	0e 94 eb 06 	call	0xdd6	; 0xdd6 <move>
+		isFoodEaten();             // Finding the status of current food and  
+     ec4:	0e 94 c1 06 	call	0xd82	; 0xd82 <isFoodEaten>
+	_delay_ms(300);
+	
+	foodSpawn();                    // Adding food for first-time
+	sei();	                        // For Interrupts....
+	    
+	while (END != 1)                // Continue the system
+     ec8:	80 91 0c 01 	lds	r24, 0x010C	; 0x80010c <END>
+     ecc:	90 91 0d 01 	lds	r25, 0x010D	; 0x80010d <END+0x1>
+     ed0:	01 97       	sbiw	r24, 0x01	; 1
+     ed2:	91 f7       	brne	.-28     	; 0xeb8 <main+0xb2>
+    {   
+		move(dir);                 // Main snake movement function  		
+		isFoodEaten();             // Finding the status of current food and  
+	
+	}
+}
+     ed4:	80 e0       	ldi	r24, 0x00	; 0
+     ed6:	90 e0       	ldi	r25, 0x00	; 0
+     ed8:	08 95       	ret
+
+00000eda <__vector_3>:
+
+// Interruption handling that used by the buttons.......
+ISR(PCINT0_vect)
+{
+     eda:	1f 92       	push	r1
+     edc:	0f 92       	push	r0
+     ede:	0f b6       	in	r0, 0x3f	; 63
+     ee0:	0f 92       	push	r0
+     ee2:	11 24       	eor	r1, r1
+     ee4:	8f 93       	push	r24
+     ee6:	9f 93       	push	r25
+	if (SWITCH1_PRESSED) // up button
+     ee8:	30 99       	sbic	0x06, 0	; 6
+     eea:	04 c0       	rjmp	.+8      	; 0xef4 <__vector_3+0x1a>
+	{
+		dir=0;  // go up
+     eec:	10 92 01 01 	sts	0x0101, r1	; 0x800101 <__data_start+0x1>
+     ef0:	10 92 00 01 	sts	0x0100, r1	; 0x800100 <__data_start>
+	}
+	if (SWITCH2_PRESSED) // down button
+     ef4:	31 99       	sbic	0x06, 1	; 6
+     ef6:	06 c0       	rjmp	.+12     	; 0xf04 <__vector_3+0x2a>
+	{
+		dir=1;	// go down
+     ef8:	81 e0       	ldi	r24, 0x01	; 1
+     efa:	90 e0       	ldi	r25, 0x00	; 0
+     efc:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <__data_start+0x1>
+     f00:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__data_start>
+	}
+	if (SWITCH3_PRESSED) // right button
+     f04:	32 99       	sbic	0x06, 2	; 6
+     f06:	06 c0       	rjmp	.+12     	; 0xf14 <__vector_3+0x3a>
+	{
+		dir=2;   // go right
+     f08:	82 e0       	ldi	r24, 0x02	; 2
+     f0a:	90 e0       	ldi	r25, 0x00	; 0
+     f0c:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <__data_start+0x1>
+     f10:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__data_start>
+	}
+	if (SWITCH4_PRESSED) // left button
+     f14:	33 99       	sbic	0x06, 3	; 6
+     f16:	06 c0       	rjmp	.+12     	; 0xf24 <__vector_3+0x4a>
+	{
+		dir=3;   // go left
+     f18:	83 e0       	ldi	r24, 0x03	; 3
+     f1a:	90 e0       	ldi	r25, 0x00	; 0
+     f1c:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <__data_start+0x1>
+     f20:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__data_start>
+	}
+     f24:	9f 91       	pop	r25
+     f26:	8f 91       	pop	r24
+     f28:	0f 90       	pop	r0
+     f2a:	0f be       	out	0x3f, r0	; 63
+     f2c:	0f 90       	pop	r0
+     f2e:	1f 90       	pop	r1
+     f30:	18 95       	reti
+
+00000f32 <MAX7219_write>:
+{
+
+	if (value > 15)
+		return;
+
+	MAX7219_send(MAX7219_REG_INTENSITY, value);
+     f32:	00 00       	nop
+     f34:	20 e0       	ldi	r18, 0x00	; 0
+     f36:	12 c0       	rjmp	.+36     	; 0xf5c <MAX7219_write+0x2a>
+     f38:	95 b1       	in	r25, 0x05	; 5
+     f3a:	9e 7f       	andi	r25, 0xFE	; 254
+     f3c:	95 b9       	out	0x05, r25	; 5
+     f3e:	00 00       	nop
+     f40:	88 23       	and	r24, r24
+     f42:	24 f4       	brge	.+8      	; 0xf4c <MAX7219_write+0x1a>
+     f44:	95 b1       	in	r25, 0x05	; 5
+     f46:	92 60       	ori	r25, 0x02	; 2
+     f48:	95 b9       	out	0x05, r25	; 5
+     f4a:	03 c0       	rjmp	.+6      	; 0xf52 <MAX7219_write+0x20>
+     f4c:	95 b1       	in	r25, 0x05	; 5
+     f4e:	9d 7f       	andi	r25, 0xFD	; 253
+     f50:	95 b9       	out	0x05, r25	; 5
+     f52:	95 b1       	in	r25, 0x05	; 5
+     f54:	91 60       	ori	r25, 0x01	; 1
+     f56:	95 b9       	out	0x05, r25	; 5
+     f58:	2f 5f       	subi	r18, 0xFF	; 255
+     f5a:	88 0f       	add	r24, r24
+     f5c:	28 30       	cpi	r18, 0x08	; 8
+     f5e:	60 f3       	brcs	.-40     	; 0xf38 <MAX7219_write+0x6>
+     f60:	08 95       	ret
+
+00000f62 <MAX7219_send>:
+     f62:	cf 93       	push	r28
+     f64:	c6 2f       	mov	r28, r22
+     f66:	95 b1       	in	r25, 0x05	; 5
+     f68:	94 60       	ori	r25, 0x04	; 4
+     f6a:	95 b9       	out	0x05, r25	; 5
+     f6c:	0e 94 99 07 	call	0xf32	; 0xf32 <MAX7219_write>
+     f70:	8c 2f       	mov	r24, r28
+     f72:	0e 94 99 07 	call	0xf32	; 0xf32 <MAX7219_write>
+     f76:	85 b1       	in	r24, 0x05	; 5
+     f78:	8b 7f       	andi	r24, 0xFB	; 251
+     f7a:	85 b9       	out	0x05, r24	; 5
+     f7c:	00 00       	nop
+     f7e:	85 b1       	in	r24, 0x05	; 5
+     f80:	84 60       	ori	r24, 0x04	; 4
+     f82:	85 b9       	out	0x05, r24	; 5
+     f84:	cf 91       	pop	r28
+     f86:	08 95       	ret
+
+00000f88 <MAX7219_init>:
+     f88:	84 b1       	in	r24, 0x04	; 4
+     f8a:	87 60       	ori	r24, 0x07	; 7
+     f8c:	84 b9       	out	0x04, r24	; 4
+     f8e:	60 e0       	ldi	r22, 0x00	; 0
+     f90:	89 e0       	ldi	r24, 0x09	; 9
+     f92:	0e 94 b1 07 	call	0xf62	; 0xf62 <MAX7219_send>
+     f96:	67 e0       	ldi	r22, 0x07	; 7
+     f98:	8b e0       	ldi	r24, 0x0B	; 11
+     f9a:	0e 94 b1 07 	call	0xf62	; 0xf62 <MAX7219_send>
+     f9e:	6f e0       	ldi	r22, 0x0F	; 15
+     fa0:	8a e0       	ldi	r24, 0x0A	; 10
+     fa2:	0e 94 b1 07 	call	0xf62	; 0xf62 <MAX7219_send>
+     fa6:	60 e0       	ldi	r22, 0x00	; 0
+     fa8:	8f e0       	ldi	r24, 0x0F	; 15
+     faa:	0e 94 b1 07 	call	0xf62	; 0xf62 <MAX7219_send>
+     fae:	61 e0       	ldi	r22, 0x01	; 1
+     fb0:	8c e0       	ldi	r24, 0x0C	; 12
+     fb2:	0e 94 b1 07 	call	0xf62	; 0xf62 <MAX7219_send>
+     fb6:	08 95       	ret
+
+00000fb8 <MAX7219_set_pixel>:
+     fb8:	88 30       	cpi	r24, 0x08	; 8
+     fba:	18 f5       	brcc	.+70     	; 0x1002 <MAX7219_set_pixel+0x4a>
+     fbc:	68 30       	cpi	r22, 0x08	; 8
+     fbe:	08 f5       	brcc	.+66     	; 0x1002 <MAX7219_set_pixel+0x4a>
+     fc0:	21 e0       	ldi	r18, 0x01	; 1
+     fc2:	30 e0       	ldi	r19, 0x00	; 0
+     fc4:	02 c0       	rjmp	.+4      	; 0xfca <MAX7219_set_pixel+0x12>
+     fc6:	22 0f       	add	r18, r18
+     fc8:	33 1f       	adc	r19, r19
+     fca:	6a 95       	dec	r22
+     fcc:	e2 f7       	brpl	.-8      	; 0xfc6 <MAX7219_set_pixel+0xe>
+     fce:	44 23       	and	r20, r20
+     fd0:	41 f0       	breq	.+16     	; 0xfe2 <MAX7219_set_pixel+0x2a>
+     fd2:	e8 2f       	mov	r30, r24
+     fd4:	f0 e0       	ldi	r31, 0x00	; 0
+     fd6:	e8 5e       	subi	r30, 0xE8	; 232
+     fd8:	fe 4f       	sbci	r31, 0xFE	; 254
+     fda:	90 81       	ld	r25, Z
+     fdc:	29 2b       	or	r18, r25
+     fde:	20 83       	st	Z, r18
+     fe0:	08 c0       	rjmp	.+16     	; 0xff2 <MAX7219_set_pixel+0x3a>
+     fe2:	e8 2f       	mov	r30, r24
+     fe4:	f0 e0       	ldi	r31, 0x00	; 0
+     fe6:	e8 5e       	subi	r30, 0xE8	; 232
+     fe8:	fe 4f       	sbci	r31, 0xFE	; 254
+     fea:	20 95       	com	r18
+     fec:	90 81       	ld	r25, Z
+     fee:	29 23       	and	r18, r25
+     ff0:	20 83       	st	Z, r18
+     ff2:	e8 2f       	mov	r30, r24
+     ff4:	f0 e0       	ldi	r31, 0x00	; 0
+     ff6:	e8 5e       	subi	r30, 0xE8	; 232
+     ff8:	fe 4f       	sbci	r31, 0xFE	; 254
+     ffa:	60 81       	ld	r22, Z
+     ffc:	8f 5f       	subi	r24, 0xFF	; 255
+     ffe:	0e 94 b1 07 	call	0xf62	; 0xf62 <MAX7219_send>
+    1002:	08 95       	ret
+
+00001004 <MAX7219_set_row>:
+    1004:	88 30       	cpi	r24, 0x08	; 8
+    1006:	40 f4       	brcc	.+16     	; 0x1018 <MAX7219_set_row+0x14>
+    1008:	e8 2f       	mov	r30, r24
+    100a:	f0 e0       	ldi	r31, 0x00	; 0
+    100c:	e8 5e       	subi	r30, 0xE8	; 232
+    100e:	fe 4f       	sbci	r31, 0xFE	; 254
+    1010:	60 83       	st	Z, r22
+    1012:	8f 5f       	subi	r24, 0xFF	; 255
+    1014:	0e 94 b1 07 	call	0xf62	; 0xf62 <MAX7219_send>
+    1018:	08 95       	ret
+
+0000101a <MAX7219_set_column>:
+    101a:	1f 93       	push	r17
+    101c:	cf 93       	push	r28
+    101e:	df 93       	push	r29
+    1020:	88 30       	cpi	r24, 0x08	; 8
+    1022:	b0 f4       	brcc	.+44     	; 0x1050 <MAX7219_set_column+0x36>
+    1024:	16 2f       	mov	r17, r22
+    1026:	d8 2f       	mov	r29, r24
+    1028:	c0 e0       	ldi	r28, 0x00	; 0
+    102a:	10 c0       	rjmp	.+32     	; 0x104c <MAX7219_set_column+0x32>
+    102c:	21 2f       	mov	r18, r17
+    102e:	30 e0       	ldi	r19, 0x00	; 0
+    1030:	0c 2e       	mov	r0, r28
+    1032:	02 c0       	rjmp	.+4      	; 0x1038 <MAX7219_set_column+0x1e>
+    1034:	35 95       	asr	r19
+    1036:	27 95       	ror	r18
+    1038:	0a 94       	dec	r0
+    103a:	e2 f7       	brpl	.-8      	; 0x1034 <MAX7219_set_column+0x1a>
+    103c:	41 e0       	ldi	r20, 0x01	; 1
+    103e:	20 ff       	sbrs	r18, 0
+    1040:	40 e0       	ldi	r20, 0x00	; 0
+    1042:	6d 2f       	mov	r22, r29
+    1044:	8c 2f       	mov	r24, r28
+    1046:	0e 94 dc 07 	call	0xfb8	; 0xfb8 <MAX7219_set_pixel>
+    104a:	cf 5f       	subi	r28, 0xFF	; 255
+    104c:	c8 30       	cpi	r28, 0x08	; 8
+    104e:	70 f3       	brcs	.-36     	; 0x102c <MAX7219_set_column+0x12>
+    1050:	df 91       	pop	r29
+    1052:	cf 91       	pop	r28
+    1054:	1f 91       	pop	r17
+    1056:	08 95       	ret
+
+00001058 <MAX7219_clear>:
+}
+
+void
+MAX7219_clear(void)
+{
+    1058:	cf 93       	push	r28
+	uint8_t i;
+
+	for (i = 0; i < 8; ++i) {
+    105a:	c0 e0       	ldi	r28, 0x00	; 0
+    105c:	12 c0       	rjmp	.+36     	; 0x1082 <MAX7219_clear+0x2a>
+		if (MAX7219_state[i]) {
+    105e:	8c 2f       	mov	r24, r28
+    1060:	90 e0       	ldi	r25, 0x00	; 0
+    1062:	fc 01       	movw	r30, r24
+    1064:	e8 5e       	subi	r30, 0xE8	; 232
+    1066:	fe 4f       	sbci	r31, 0xFE	; 254
+    1068:	20 81       	ld	r18, Z
+    106a:	22 23       	and	r18, r18
+    106c:	49 f0       	breq	.+18     	; 0x1080 <MAX7219_clear+0x28>
+			MAX7219_state[i] = 0;
+    106e:	fc 01       	movw	r30, r24
+    1070:	e8 5e       	subi	r30, 0xE8	; 232
+    1072:	fe 4f       	sbci	r31, 0xFE	; 254
+    1074:	10 82       	st	Z, r1
+			MAX7219_send(i + 1, 0);
+    1076:	60 e0       	ldi	r22, 0x00	; 0
+    1078:	81 e0       	ldi	r24, 0x01	; 1
+    107a:	8c 0f       	add	r24, r28
+    107c:	0e 94 b1 07 	call	0xf62	; 0xf62 <MAX7219_send>
+void
+MAX7219_clear(void)
+{
+	uint8_t i;
+
+	for (i = 0; i < 8; ++i) {
+    1080:	cf 5f       	subi	r28, 0xFF	; 255
+    1082:	c8 30       	cpi	r28, 0x08	; 8
+    1084:	60 f3       	brcs	.-40     	; 0x105e <MAX7219_clear+0x6>
+		if (MAX7219_state[i]) {
+			MAX7219_state[i] = 0;
+			MAX7219_send(i + 1, 0);
+		}
+	}
+}
+    1086:	cf 91       	pop	r28
+    1088:	08 95       	ret
+
+0000108a <_exit>:
+    108a:	f8 94       	cli
+
+0000108c <__stop_program>:
+    108c:	ff cf       	rjmp	.-2      	; 0x108c <__stop_program>
