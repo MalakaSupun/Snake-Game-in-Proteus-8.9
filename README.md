@@ -1,3 +1,5 @@
+![GitHub repo size](https://img.shields.io/github/repo-size/MalakaSupun/Snake-Game-in-Proteus-8.9?logo=GitHub&style=for-the-badge)
+
 # Snake-Game-in-Proteus-8.9
 This is a fully-functional "Snake 🐍 Game" with a score display. </br>
 
