@@ -18,6 +18,6 @@ This is a project that done with Atmel Studio and Protues for educational purpos
 * Displaying scores form 7 segment display.
 
 ## All Components Used:
-
-
+These are the all the components that I have used in this project. </br>
+You can see all the components in the "Introduction" section.</br>
 ![Screenshot 2022-10-02 013834](https://user-images.githubusercontent.com/71941117/193426582-a52feb42-8dd5-4cc1-b224-93791fc91af2.jpg)
