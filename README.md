@@ -1,11 +1,12 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/MalakaSupun/Snake-Game-in-Proteus-8.9?logo=GitHub&style=for-the-badge)
-
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/MalakaSupun/Snake-Game-in-Proteus-8.9?logo=GitHub&style=for-the-badge)
 # Snake-Game-in-Proteus-8.9
 This is a fully-functional "Snake 🐍 Game" with a score display. </br>
 
 ## Introductions:
 This is a project that done with Atmel Studio and Protues for educational purpose. </br>
-"C programming" language is used to develop the project.
+"C programming" language is used to develop the project.</br>
+You can use 4 buttons to navigate the snake to it's food loacation.
 
 ![End project](https://user-images.githubusercontent.com/71941117/192036822-6ea4d9d4-f308-48ab-8c42-3c25d0cc8701.jpg)
 
