@@ -1,5 +1,8 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/MalakaSupun/Snake-Game-in-Proteus-8.9?logo=GitHub&style=for-the-badge)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/MalakaSupun/Snake-Game-in-Proteus-8.9?logo=GitHub&style=for-the-badge)
+
+#
+
 <p align="center">
     <img width="360" src="https://user-images.githubusercontent.com/71941117/194405716-35bc4b21-106d-4aa9-b948-bb311765c390.jpg" alt="Snake Game in Proteus 8.9">
 </p>
@@ -15,6 +18,8 @@ This is a fully-functional "Snake 🐍 Game" with a score display. </br>
 This can be played like a normal arcade game using four buttons. </br>
 [Release 1.0v]
 </p>
+
+#
 
 ## Introductions:
 This is a project that done with Atmel Studio and Protues for educational purpose. </br>
