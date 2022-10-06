@@ -1,7 +1,14 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/MalakaSupun/Snake-Game-in-Proteus-8.9?logo=GitHub&style=for-the-badge)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/MalakaSupun/Snake-Game-in-Proteus-8.9?logo=GitHub&style=for-the-badge)
-# Snake-Game-in-Proteus-8.9
+
+
+<h1 align="center">
+ Snake Game in Proteus 8.9
+</h1>
+
+<p align="center">
 This is a fully-functional "Snake 🐍 Game" with a score display. </br>
+</p>
 
 ## Introductions:
 This is a project that done with Atmel Studio and Protues for educational purpose. </br>
