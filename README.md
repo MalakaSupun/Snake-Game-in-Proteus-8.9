@@ -16,7 +16,7 @@
 <p align="center">
 This is a fully-functional "Snake 🐍 Game" with a score display. </br>
 This can be played like a normal arcade game using four buttons. </br>
-[Release 1.0v]
+*[Release 1.0v]
 </p>
 
 #
