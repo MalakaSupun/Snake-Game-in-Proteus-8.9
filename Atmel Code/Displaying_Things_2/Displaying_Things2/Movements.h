@@ -66,7 +66,7 @@ void movedown()							// Move down function
 	else
 	{
 		MAX7219_set_pixel(Cx,Cy,true);
-		_delay_ms(300);
+		_delay_ms(300);                        // Adding delay
 		MAX7219_set_pixel(Cx,Cy,false);
 		MAX7219_set_pixel(Cx+1,Cy,true);
 		Cx=Cx+1;
