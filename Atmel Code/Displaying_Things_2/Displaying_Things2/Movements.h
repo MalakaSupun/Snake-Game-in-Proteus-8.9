@@ -83,7 +83,7 @@ void moveright()						// Move right function
 	else
 	{
 		MAX7219_set_pixel(Cx,Cy,true);
-		_delay_ms(300);
+		_delay_ms(300);                        // Adding delay
 		MAX7219_set_pixel(Cx,Cy,false);
 		MAX7219_set_pixel(Cx,Cy+1,true);
 		Cx=Cx;
@@ -102,7 +102,7 @@ void moveleft()                         // Move left function
 	else
 	{
 		MAX7219_set_pixel(Cx,Cy,true);
-		_delay_ms(300);
+		_delay_ms(300);                        // Adding delay
 		MAX7219_set_pixel(Cx,Cy,false);
 		MAX7219_set_pixel(Cx,Cy-1,true);
 		Cx=Cx;
