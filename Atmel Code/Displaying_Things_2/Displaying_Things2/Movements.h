@@ -65,11 +65,11 @@ void movedown()							// Move down function
 	}
 	else
 	{
-		MAX7219_set_pixel(Cx,Cy,true);
+		MAX7219_set_pixel(Cx,Cy,true);         // On LED .....
 		_delay_ms(300);                        // Adding delay
 		MAX7219_set_pixel(Cx,Cy,false);
 		MAX7219_set_pixel(Cx+1,Cy,true);
-		Cx=Cx+1;
+		Cx=Cx+1;  
 		Cy=Cy;
 	}
 }
@@ -82,7 +82,7 @@ void moveright()						// Move right function
 	}
 	else
 	{
-		MAX7219_set_pixel(Cx,Cy,true);
+		MAX7219_set_pixel(Cx,Cy,true);         // On LED .....
 		_delay_ms(300);                        // Adding delay
 		MAX7219_set_pixel(Cx,Cy,false);
 		MAX7219_set_pixel(Cx,Cy+1,true);
@@ -101,7 +101,7 @@ void moveleft()                         // Move left function
 	}
 	else
 	{
-		MAX7219_set_pixel(Cx,Cy,true);
+		MAX7219_set_pixel(Cx,Cy,true);         // On LED .....
 		_delay_ms(300);                        // Adding delay
 		MAX7219_set_pixel(Cx,Cy,false);
 		MAX7219_set_pixel(Cx,Cy-1,true);
