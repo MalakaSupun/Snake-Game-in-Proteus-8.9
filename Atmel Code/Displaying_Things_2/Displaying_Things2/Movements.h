@@ -161,21 +161,21 @@ void move(int dir)                      // Main function that used to directing 
 {
 	if (dir==0) // up
 	{
-		moveup();
+		moveup();      // Calling move up methode......
 	}
 	
 	if (dir==1) // down
 	{
-		movedown();
+		movedown();    // Calling move down methode......
 	}
 	
 	if (dir==2) // right
 	{
-		moveright();
+		moveright();    // Calling move right methode......
 	}
 	
 	if (dir==3) // left
 	{
-		moveleft();
+		moveleft();    // Calling move left methode......
 	}
 }
