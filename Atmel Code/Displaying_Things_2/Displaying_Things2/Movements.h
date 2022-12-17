@@ -61,7 +61,7 @@ void movedown()							// Move down function
 {
 	if (Cx>XBU||Cx<XBD||Cy>YBU||Cy<YBD)
 	{
-		gameOver();
+		gameOver();   // Ending the game after hitting boundaries...............
 	}
 	else
 	{
@@ -78,7 +78,7 @@ void moveright()						// Move right function
 {
 	if (Cx>XBU||Cx<XBD||Cy>YBU||Cy<YBD)
 	{
-		gameOver();
+		gameOver();   // Ending the game after hitting boundaries...............
 	}
 	else
 	{
@@ -96,7 +96,7 @@ void moveleft()                         // Move left function
 {
 	if (Cx>XBU||Cx<XBD||Cy>YBU||Cy<YBD)
 	{
-		gameOver();
+		gameOver();   // Ending the game after hitting boundaries...............
 		
 	}
 	else
