@@ -367,8 +367,8 @@ void ShowGO()     // appearing the LED array
 {
 	for (px=0;px<30;px++)
 	{
-		DispGo();
-		_delay_ms(150);
+		DispGo();             // Displaying GO massage.........
+		_delay_ms(150);       // Delay for 150ms ..............
 		MAX7219_clear();
 		_delay_ms(10);
 	}
