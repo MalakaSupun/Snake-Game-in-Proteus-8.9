@@ -5,6 +5,7 @@
  *  Author: Adithya
  */ 
 
+// This is the library that used for 7 segment LED display.....
 
 #ifndef MAX7219_H_7SEG
 #define MAX7219_H_7SEG
