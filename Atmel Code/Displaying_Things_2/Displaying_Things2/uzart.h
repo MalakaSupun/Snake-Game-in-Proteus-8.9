@@ -1,3 +1,5 @@
+//This is the libray that used to communicate between two MCUs......................
+
 #define F_CPU 8000000UL // Defining the CPU Frequency
 #include <avr/io.h> // Contains all the I/O Register Macros
 #include <util/delay.h> // Generates a Blocking Delay
