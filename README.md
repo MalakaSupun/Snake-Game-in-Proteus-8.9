@@ -4,7 +4,7 @@
 #
 
 <p align="center">
-    <img width="360" src="https://user-images.githubusercontent.com/71941117/194405716-35bc4b21-106d-4aa9-b948-bb311765c390.jpg" alt="Snake Game in Proteus 8.9">
+    <img width="360" src="Repo_IMGs/Logo_01.png" alt="Snake Game in Proteus 8.9">
 </p>
 
 
