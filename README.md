@@ -4,7 +4,7 @@
 #
 
 <p align="center">
-    <img width="360" src="Repo_IMGs/Logo_01.png" alt="Snake Game in Proteus 8.9">
+    <img width="400" src="Repo_IMGs/Logo_01.png" alt="Snake Game in Proteus 8.9">
 </p>
 
 
@@ -13,11 +13,13 @@
  Snake Game in Proteus 8.9
 </h1>
 
-<p align="center">
+<div align="center">
 This is a fully-functional "Snake 🐍 Game" with a score display. </br>
 This can be played like a normal arcade game using four buttons. </br>
-*[Release 1.0v]
-</p>
+
+**[Release 1.0v]**
+
+</div>
 
 #
 
@@ -52,3 +54,11 @@ Most of them are not compulsory for the project. You can change the accordingly.
 
 ## Thanks :
 Thanks to all my friends, that help me with this project.💙💙💙
+
+
+<p align="center">
+    <img width="1360" src="Repo_IMGs/Logo_02.png" alt="Snake Game in Proteus 8.9">
+</p>
+
+
+---
